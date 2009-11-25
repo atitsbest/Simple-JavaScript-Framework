@@ -1,0 +1,77 @@
+/* 			                _______________________	*/
+/*			                QUANTITYOFFERINFO       */
+td.quantityofferinfo ul {
+                        margin: 2px 4px 2px;
+                        position: relative;
+}
+td.quantityofferinfo ul li {
+                        color: #adadad;
+                        font-size: 11px;  
+                        text-align: right;      
+}
+tr.quantityofferinfo td.quantityofferinfo {
+                        padding: 0 1px 1px;
+}
+tr.quantityofferinfo td.quantityofferinfo.odd {
+                        background-color: #f1f1f1;
+}
+tr.quantityofferinfo td.quantityofferinfo {
+                        background-color: #ececec;
+}
+tr.quantityofferinfo td.quantityofferinfo:hover {
+                        border: 1px solid #d4d0c8;
+                        border-top: none;
+                        background-color: #ffff80;
+                        cursor: pointer;
+                        padding: 0;
+}
+tr.quantityofferinfo td.quantityofferinfo.selected {
+                        background-color: #d1d9ff;
+                        cursor: pointer;
+}
+tr.quantityofferinfo td.quantityofferinfo.selected ul li {
+                        color: #616161;
+}
+
+td.quantityofferinfo ul li.select {
+                        text-align: center;
+}
+td.quantityofferinfo ul li.select img {
+                        cursor: pointer;
+                        display: block;
+}
+tr.quantityofferinfo td:hover ul.quantityofferinfo li.select img {
+                        display: block;
+}
+
+#quantitofferlist tbody tr td.quantityoffer {
+                        background-color: #f1f1f1;
+                        text-align: center;
+}
+#quantitofferlist tbody tr td.quantityoffer.odd {
+                        background-color: #ececec;
+}
+
+#quantitofferlist tbody tr.odd td.quantityoffer {
+                        background-color: #f7f7f7;
+                        text-align: center;
+}
+#quantitofferlist tbody tr.odd td.quantityoffer.odd {
+                        background-color: #f1f1f1;
+}
+
+#quantitofferlist tr.selected td {
+                        background-color: #22318a !important;
+                        color: #efefef !important;
+}
+#quantitofferlist tr td.selected {
+                        background-color: #d1d9ff !important;
+                        color: #efefef !important;
+}
+#quantitofferlist tr.selected td.selected {
+                        background-color: #1c2871 !important;
+                        border-bottom-color: #d1d9ff;
+}
+#quantitofferlist tr.last td.selected {
+                        border-bottom-color: #d4d0c8;
+}

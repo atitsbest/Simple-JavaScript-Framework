@@ -1,0 +1,141 @@
+/* 			                _______________________	*/
+/*			                TABLECONTAINER       		*/
+div.tablecontainer {
+	                      top: 148px; /* Für IE in ie.css ändern */
+}
+/* 			                _______________________	*/
+/*			                QUANTITYOFFERINFO       */
+td.quantityproposalinfo ul {
+                        margin: 2px 4px 2px;
+                        position: relative;
+}
+td.quantityproposalinfo ul li {
+                        color: #adadad;
+                        font-size: 11px;  
+                        text-align: right;      
+}
+/* Auswählen, abwählen */
+td.quantityproposalinfo .action {
+                        text-align: center;      
+                        height: 20px;
+}
+
+tr.quantityproposalinfo td {
+                        background: #ececec url('../../images/controllers/quantityproposal/header_bgr.gif') repeat-x;
+/*                        height: 68px;*/
+                        text-align: center;
+                        vertical-align: middle;
+}
+tr.quantityproposalinfo td.quantityproposalinfo {
+                        padding: 0 1px 1px;
+}
+tr.quantityproposalinfo td.quantityproposalinfo.odd {
+                        background: #f1f1f1 url('../../images/controllers/quantityproposal/header_bgr_odd.gif') repeat-x;
+}
+tr.quantityproposalinfo td.quantityproposalinfo {
+                        background-color: #ececec;
+}
+/*tr.quantityproposalinfo td.quantityproposalinfo:hover {
+                        border: 1px solid #d4d0c8;
+                        border-top: none;
+                        background-color: #ffff80;
+                        cursor: pointer;
+                        padding: 0;
+}*/
+tr.quantityproposalinfo td.quantityproposalinfo.selected {
+                        background-color: #d1d9ff;
+                        background-image: none;
+                        cursor: pointer;
+}
+tr.quantityproposalinfo td.quantityproposalinfo.selected ul li {
+                        color: #616161;
+}
+
+td.quantityproposalinfo ul li.select {
+                        text-align: center;
+}
+td.quantityproposalinfo ul li.select img {
+                        cursor: pointer;
+                        display: block;
+}
+tr.quantityproposalinfo td:hover ul.quantityproposalinfo li.select img {
+                        display: block;
+}
+
+#quantityproposals tbody tr td.quantityproposal {
+                        background-color: #f1f1f1;
+                        text-align: center;
+}
+#quantityproposals tbody tr td.quantityproposal.odd {
+                        background-color: #ececec;
+}
+
+#quantityproposals tbody tr.odd td.quantityproposal {
+                        background-color: #f7f7f7;
+                        text-align: center;
+}
+#quantityproposals tbody tr.odd td.quantityproposal.odd {
+                        background-color: #f1f1f1;
+}
+
+#quantityproposals tr.selected td {
+                        background-color: #22318a !important;
+                        color: #efefef !important;
+}
+#quantityproposals tr td.selected {
+                        background-color: #d1d9ff !important;
+                        color: #efefef !important;
+}
+#quantityproposals tr.selected td.selected {
+                        background-color: #1c2871 !important;
+                        border-bottom-color: #d1d9ff;
+}
+#quantityproposals tr.last td.selected {
+                        border-bottom-color: #d4d0c8;
+}
+
+/* 			                _______________________	*/
+/*			                ZEILEN-MARKIERUNGEN  		*/
+/* Ausgewähltes Modell/Modelltyp */
+#quantityproposals tr.selected td {
+                        background-color: #22318a !important;
+                        color: #fff;
+}
+/* Modell mit ein paar ausgewählten Modelltypen */
+#quantityproposals tr.semi_selected td {
+                        background-color: #d1d9ff !important;
+}
+
+/* Die Stati */
+#quantityproposals td.image_states .states ul li {
+                        display: block;
+                        float: left;
+                        padding: 0;
+                        text-align: center;
+                        width: 29px;
+}
+
+/* Openclose */
+#quantityproposals td.openclose {
+                        background-color: #fff !important;
+                        border-right: 1px solid #d8d8d8; 
+                        border-bottom-color: #f7f7f7; 
+}
+#quantityproposals tr.modeltype td.openclose {
+                        border-top: none; 
+}
+#quantityproposals tr.quantityproposalinfo td.openclose {
+                        border-top: none; 
+                        border-bottom: none;
+}
+
+/* Das Bild mit Stati  */
+#quantityproposals td.image_states .image ul {
+                        display: inline;
+                        float: right;
+                        margin-right: 7px;
+}
+#quantityproposals td.image_states .image ul li {
+                        height: 18px;
+}
+

@@ -1,0 +1,31 @@
+/* 			                _______________________	*/
+/*			                TABLE                		*/
+table.budget tr.productline td {
+                       color: #d8d8d8;
+                       border-bottom: 2px solid #d8d8d8;
+                       font-weight: bold;
+                       height: 3.5em;
+                       vertical-align: bottom;
+}
+table.budget tr.productline td p {
+                       margin-bottom: .3em;
+}
+
+table.budget tr.materialgroup td {
+                       background-color: #f1f1f1;
+}
+
+/* Das Eingabefeld für den Ausdisponierungsgrad */
+table.budget tr td.degree input {
+                        text-align: right;
+                        width: 4em;
+}
+/* Das Eingabefeld für den Ausdisponierungsgrad auf Sortimentsebene. */
+table.budget tr.productline td.degree input {
+}
+
+/* Das Eingabefeld für das Budget */
+table.budget tr td.budget input {
+                        text-align: right;
+                        width: 8em;
+}

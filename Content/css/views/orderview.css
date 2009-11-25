@@ -1,0 +1,406 @@
+/* 			                _______________________	*/
+/*			                TABLECONTAINER       		*/
+div.tablecontainer {
+	                      top: 81px; /* Für IE in ie.css ändern */
+}
+
+/* 			                _______________________	*/
+/*			                TABLE                		*/
+table#dataTable tbody tr.modeltype td {
+                        background: #dee8f6;
+                        border-bottom: 1px solid #99bbe8;
+                        border-top: 1px solid #f7f7f7;
+                        color: #15428B;
+                        height: 28px;
+                        /*margin: 0;
+                        padding: 0;*/
+                        width: auto;
+}
+
+/*                      Schnellsuche in der Sidebar */
+#sidebar div.search {
+                        text-align: right;
+}
+
+#sidebar div.search input.search {
+                        width: 190px;
+}
+
+/* 			                _______________________	*/
+/*			                GROUPS                  */
+#sidebar ul#groups {
+                        background-color: #efefef;
+                        border-top: 1px solid #d8d8d8;
+                        padding: .4em 0 .8em;
+                        width: 100%;
+}
+
+#sidebar ul#groups li {
+                        cursor: pointer;
+                        display: inline;
+                        list-style-type: none;
+                        margin-left: 2px;
+                        padding: .4em .5em .5em;
+}
+
+#sidebar ul#groups li.selected {
+                        background-color: #fff;
+                        border: 1px solid #d8d8d8;
+                        border-top-style: dotted;
+                        padding-top: 3px;
+                        padding-bottom: 5px;
+                        position: relative;
+                        top: -1px;
+}
+
+/* 			                _______________________	*/
+/*			                MODELINFO            		*/
+div.modelpicture {
+                        border:1px solid #99BBE8;
+                        position:absolute;
+                        
+}
+table.modelinfos {
+                        border:1px solid #99BBE8;
+                        height:490px;
+                        margin-top:1px;
+                        overflow:auto;
+                        position:absolute;
+                        width:335px;
+}
+
+table#dataTable table.modelinfos {
+                        background-color: #fff;
+                        cursor: pointer;
+}
+
+table#dataTable table.modelinfos tbody tr td {
+                        background-color: #fff;
+                        border: none;
+                        font-size: 1em;
+                        padding: 0 1em;
+                        height: 20px;
+}
+
+table#dataTable table.modelinfos tr.separator td {
+                        border-top: 1px solid #d8d8d8;
+}
+
+table#dataTable table.modelinfos tr.odd td {
+                        background-color: #f1f1f1;
+}
+
+table#dataTable table.modelinfos tr.image td {
+                        text-align: left;
+                        height: 70px;
+}
+
+table#dataTable table.modelinfos tr.modules div { 
+						width:300px;
+						height:62px;
+						overflow-y:none;
+						overflow-x:auto;	
+}
+
+table#dataTable table.modelinfos tr.modules table td 
+{
+						border-left: 1px solid #d8d8d8;
+						text-align: center;
+						padding: 0 0.4em;
+}
+
+table#dataTable table.modelinfos tr td.descr {
+                        color: #333;
+}
+
+table#dataTable table.modelinfos tr td.value {
+                        text-align: right;
+                        padding-right: .2em;
+}
+
+table#dataTable table.modelinfos tr td.unit {
+                        color: #d8d8d8;
+                        font-size: .9em;
+                        padding-left: .2em;
+                        padding-right: .4em;
+}
+
+/* Modellbild */
+table#dataTable table.modelinfos tr.image td img.model {
+                        border: 1px solid #d8d8d8;
+                        margin-left: .5em;
+                        padding: 1px;
+                        max-height: 75px;
+                        max-width: 75px;
+}
+/* Lupe für das Modellbild */
+table#dataTable table.modelinfos tr.image td img.zoom {
+                        position: absolute;
+                        margin: 58px 0 0 -13px;
+}
+
+table#dataTable table.modelinfos tr td.descr {
+                        padding: 0 2em 0 1.5em;
+                        text-align: left;
+}
+/* Bausteinzuordnung */
+
+table#dataTable table.modelinfos tr.module td {
+                        background-color: #f7f7f7;
+}
+table#dataTable table.modelinfos tr.module.odd td {
+                        background-color: #efefef;
+}
+
+
+/* Menu */
+ul.menu {
+                        background-color: #fff;
+                        border: 1px solid #000;
+                        position: absolute;
+                        width: 210px;
+                        z-index: 10;
+}
+ul.menu li {
+                        color: #000;
+                        padding: .2em;
+                        text-align: left;
+}
+ul.menu li:hover {
+                        background-color: #dee8f6;
+}
+
+.expand_sizes ul.menu {
+                        margin: 8px 0 0 -15px;
+                        width: 200px;
+}
+
+
+
+/* 			                _______________________	*/
+/*			                BUDGETINFOS          		*/
+.budgetinfos {
+                        border-top: 1px solid #d8d8d8;
+                        background-color: #FFFADF;
+}
+
+.budgetinfos table.infos {
+                        width: 100%;
+}
+
+.budgetinfos table.infos td {
+                        border: none;
+}
+
+/* Anfang einer Gruppe */
+.budgetinfos table.infos tr.group td {
+                        margin-top: 1.5em;
+}
+
+/* Andere Hintergrundfarbe */
+.budgetinfos table.infos tr.value td,
+.budgetinfos table.infos tr.db td,
+.budgetinfos table.infos tr.refresh td {
+                        background-color: #fff5bf;
+}
+
+.budgetinfos table.infos td.state {
+}
+
+.budgetinfos table.infos tr td.descr {
+                        padding-left: 1em;
+                        text-align: left;
+                        width: 70px;
+}
+
+.budgetinfos table.infos tr td.value {
+                        font-weight: bold;
+                        text-align: right;
+                        width: 50px;
+}
+.budgetinfos table.infos tr td.unit {
+                        padding: 0 1em 0 .5em;
+                        text-align: left;
+                        width: 90px;
+                        white-space: nowrap;
+}
+.budgetinfos table.infos tr td.unit small {
+                        color: #adadad;
+                        font-size: .8em;
+                        padding-right: 1em;
+}
+.budgetinfos table.infos tr td {
+                        padding: .25em 0;
+                        line-height: 1em;
+                        height: 6px;
+}
+
+.budgetinfos .toolbar li.headline {
+                        color: #15428B;
+                        font-weight: bold;
+                        overflow: hidden;
+                        width: 188px;
+}
+
+
+
+
+
+
+
+
+
+
+tr.modeltype .openclose {
+                        background: #fff !important;
+                        border-bottom-color: #f7f7f7 !important;
+                        border-right: 1px solid #99bbe8;
+}
+
+tr.modeltype .openclose p {
+                        margin-left: 6px; 
+}
+
+.valuta input {
+                        width: 7em;
+}
+.supplier select {
+                        width: 6.3em;
+}
+
+
+/* 			                _______________________	*/
+/*			                ORDERVIEW            		*/
+.quantities .buttonarea {
+  border-right: 1px solid #99bbe8;
+  border-bottom: none;
+  vertical-align: top;
+}
+
+.quantities .buttonarea span {
+  border: 1px solid white;
+  margin: 1.2em .8em;
+}
+
+.quantities .last {
+  border-right: 1px solid #99bbe8;
+  width: 1.1em;
+}
+td.last {
+  border-right: 1px solid #99bbe8;
+}
+
+.quantities .head {
+}
+
+.quantities .head > div {
+  background-color: #f1f1f1;
+  float: left;
+  height: 28px;
+  padding-top: .5em;
+}
+
+.quantities .head span {
+  color: #d8d8d8;
+  display:block;
+  font-weight: bold;
+  margin-top: .55em;
+  text-align: center;
+}
+
+.quantities .head input {
+  color: #aaa;
+  background-color: #f1f1f1;
+}
+
+.quantities .body {
+  padding-top: .6em;
+  background-color: #fff;
+  border-top: 1px solid #d8d8d8;
+  border-right: 1px solid #99bbe8;
+/*  clear: both;*/
+  display: none;
+}
+
+.quantities .body .deliverydate {
+/*  clear: both;*/
+}
+
+.quantities .body .deliverydate > div {
+  float: left;
+}
+
+.quantities .sku input {
+  text-align: right;
+  border: none;
+}
+
+/* Einzelverkaufssperre */
+.quantities .sku input.locked {
+  color: #d8d8d8;
+}
+
+
+.quantities input {
+  width: 2em;
+}
+
+.quantities .foot {
+  background-color: #f7f7f7;
+  border-top: 1px solid #d8d8d8;
+/*  clear: both;*/
+  font-weight: bold;
+}
+
+.quantities .foot span {
+  display:block;
+  margin-top: .35em;
+}
+
+.quantities .foot .totalsum > div {
+  background-color: #f1f1f1 !important;
+  border-top: 1px solid #d8d8d8;
+}
+
+.quantities .foot .sum {
+/*  clear: both;*/
+}
+
+.quantities .foot .sum > div {
+  float: left;
+  height: 20px;
+}
+
+.quantities .foot .rowhead {
+  color: #d8d8d8;
+  padding-left: 1em;
+  text-align: right;
+  width: 100px;
+}
+.quantities .foot .rowhead > span {
+  /*margin-right: 24px;*/
+}
+
+.quantities .foot .sku {
+  text-align: right;
+}
+
+.quantities .date {
+  padding-left: 1em;
+  width: 50px;
+}
+.quantities .name {
+  width: 50px;                        
+}
+.quantities .rowsum {
+  width: 50px;                        
+}
+.quantities .sku {
+  width: 30px;                        
+  height: 24px;
+  text-align: right;
+}
+
+.quantities .buttons span {
+  display: none;
+}

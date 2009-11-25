@@ -1,0 +1,37 @@
+/* 			                _______________________	*/
+/*			                BODY                 		*/
+body {
+	                      color: #383838;
+	                      font-family: "Tahoma", Verdana, Arial, Sans-Serif;
+	                      font-size: 8.4pt;
+}
+
+/* 			                _______________________	*/
+/*			                INPUTS               		*/
+input, select, textarea {
+	                      font-family: "Tahoma", Verdana, Arial, Sans-Serif;
+                        font-size: 8.4pt;
+}
+
+/* 			                _______________________	*/
+/*			                HEADLINES            		*/
+h2 {
+	                      background: #fff url(../images/headline.png) repeat-x;
+	                      cursor: pointer;
+	                      color: #15428B;
+	                      font-size: 100%;
+	                      font-weight: bold;
+	                      height: 17px;
+	                      letter-spacing: 0px;
+	                      line-height: 1em;
+	                      margin: 0;
+	                      padding: .6em .5em .5em 5px;
+	                      display: block;
+}
+
+/* 			                _______________________	*/
+/*			                LINKS               		*/
+a {
+                        color: #15428B;
+                        text-decoration: none;
+}

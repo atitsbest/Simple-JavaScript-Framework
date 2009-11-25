@@ -1,0 +1,58 @@
+/* 			                _______________________	*/
+/*			                @IMPORTS                */
+
+/* 			                _______________________	*/
+/*			                BODY                    */
+html {
+                        overflow: hidden;
+}
+body {
+                        background-color: #dee8f6;
+                        overflow: hidden;
+                        padding: 0;
+                        margin: 0;
+                        width: 100%;
+                        height: 100%;
+}
+
+/* 			                _______________________	*/
+/*			                SLOTS                   */
+#header {
+                        background-color: #ffffff;
+                        padding: 0;
+                        margin: 0;
+                        position: absolute;
+                        top: 0px;    
+                        left: 0px;
+                        width: 100%;
+                        height: 65px;
+                        overflow: hidden;
+}
+
+#sidebar {    
+                        background-color: #ffffff;
+                        border: 1px solid #99bbe8;
+                        padding: 0;
+                        margin: 0;
+                        position: absolute;    
+                        top: 70px;
+                        left: 5px;
+/*                        bottom: 5px;  /* Die Höhe ist in app.js:resizeLayout zu finden */
+                        overflow: auto;    
+                        width: 250px;    
+}
+
+#main {
+                        background-color: #ffffff;
+                        border: 1px solid #99bbe8;
+                        border-top: none;
+                        padding: 0;
+                        margin: 0;
+                        position: absolute;    
+                        top: 70px;
+                        left: 25px; /* 260px */
+                        right: 3px;   /* Breite und Höhe sind in app.js:resizeLayout zu finden */
+                        bottom: 3px;
+                        overflow: hidden; /*auto;*/
+}
+

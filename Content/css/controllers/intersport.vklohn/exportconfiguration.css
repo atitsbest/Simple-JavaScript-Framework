@@ -1,0 +1,44 @@
+﻿#ExportConfigurationData 
+{
+                        padding-top : 2em;
+                        padding-left : 2em;
+                        background-color: #fff; 
+}
+
+#ExportConfigurationData h3 {
+	                    color: #15428B;
+	                    font-size: 1em;
+	                    font-weight: bold;
+	                    letter-spacing: 1px;
+                        margin: 2em 2em 1em;
+                        text-transform: uppercase;
+}
+
+#ExportConfigurationData input
+{
+                        width : 3em;
+}
+
+#ExportConfigurationData ul {
+                        margin: 1em 2em 1em 2.5em;                        
+}
+
+#ExportConfigurationData ul li {
+                        border-bottom: 1px dashed #f1f1f1;
+                        height: 22px;
+                        padding: .4em 0;
+                        vertical-align: middle;
+}
+
+#ExportConfigurationData ul li label {
+                        text-align: left;
+                        float: left;
+                        height: 22px;
+                        vertical-align: middle;
+                        width: 70px;    
+                        padding-bottom: .5em;                    
+}
+
+#ExportConfigurationData ul li span {
+                        margin-left: 10px;                        
+}

@@ -1,0 +1,92 @@
+/* 			                _______________________	*/
+/*			                TOOLBAR              		*/
+ol.toolbar {
+                        background: #dee8f6 url(../../images/toolbar/toolbar_25.png) repeat-x;
+                        border-bottom: 1px solid #99bbe8;
+                        height: 25px;
+                        margin: 0;
+                        padding: 0;
+                        width: 100%;
+}
+ol.toolbar > li {
+                        border-left: 1px solid #f7f7f7;
+                        border-right: 1px solid #99BBE8;
+                        display: block;
+                        float: left;
+                        height: 12px;
+                        margin: 0;
+                        padding: 2px 4px 0 2px;
+                        position: relative;
+                        top: 5px;
+}
+
+/* Der erste Eintrag einer Toolbar */
+ol.toolbar > li.first {
+                        border-left: none;
+}
+/* Der erste Eintrag einer Toolbar */
+ol.toolbar > li.last {
+                        border-right: none;
+}
+
+/* Der Link */
+ol.toolbar > li a {
+                        display: inline;
+                        height: 100%;
+                        margin: 1px;
+                        padding: 7px 2px 1px;
+                        position: relative;
+                        text-decoration: none;
+                        top: -3px;
+}
+/* Der Hover für den Link */
+ol.toolbar > li a:hover {
+                        background-color: #bed4ef;
+                        border: 1px solid #99bbe8;
+                        color: #000;
+                        margin: 0;
+}
+/* Das Bild im Link */
+ol.toolbar > li a img {
+                        margin: 0;
+                        position: relative;
+                        top: 1px;
+}
+ol.toolbar > li a.disabled:hover {
+                        background: none;
+                        border: none;
+                        cursor: default;
+                        margin: 1px;
+}
+/* Der Text im Link */
+ol.toolbar > li a span {
+                        margin: 0;
+                        padding: 0;
+                        position: relative;
+                        top: -3px;
+}
+ol.toolbar > li a.disabled span {
+						color:Gray;
+}
+/* Das CSS-Sprite im Link */
+ol.toolbar > li a span.sprite {
+                        top: 2px;
+}
+
+
+/* Text ohne Link */
+ol.toolbar > li span {
+                        margin: 0 2px;
+                        padding: 0;
+                        position: relative;
+                        top: -4px;
+}
+
+
+/* Combo/Input in der Toolbar */
+ol.toolbar > li select,
+ol.toolbar > li input {
+                        position: relative;
+                        margin-left: 4px;
+                        top: -3px;
+}

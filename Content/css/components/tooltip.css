@@ -1,0 +1,22 @@
+/* 			                _______________________	*/
+/*			                TOOLTIP             		*/
+.tooltip {
+                        margin-left: -10px;
+                        position: absolute;
+                        width: 230px;
+                        z-index: 100;
+}
+
+.tooltip > img {
+                        margin-left: 20px;
+}
+
+.tooltip > div {
+                        background-color: #ffffdd;
+                        border: 1px solid #000;
+                        color: #000;
+                        padding: 0;
+                        position: relative;
+                        top: -3px;
+                        z-index: 90;
+}

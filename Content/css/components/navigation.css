@@ -1,0 +1,84 @@
+/* 			                _______________________	*/
+/*			                NAVIGATION              */
+#navigation {
+                        background-image: url(../../images/navigator/navigator_inactive.png); 
+                        background-repeat: repeat-x;            
+                        position: relative;
+}
+
+#navigation .breadcrumbcontainer {
+                        overflow: hidden;
+}
+
+#navigation h3 {
+                        display: inline;
+                        padding: 0px 20px;
+                        position:relative;
+                        top: -13px;
+                        font-weight: normal;
+}
+
+#navigation ul {
+                        /*min-width: 600px;*/
+                        width: 2000px;  
+                        height: 33px;
+}
+
+#navigation ul li { 
+                        height: 33px;
+                        margin: 0;
+                        padding: 0;
+                        float:left;
+}
+
+#navigation li.active {
+                        background-image: url(../../images/navigator/navigator_active.png); 
+                        color: blue;
+}
+#navigation li.disabled {
+                        color: gray;
+}
+#navigation li.disabled a {
+                        color: gray;
+}
+
+#navigation .textseparator {
+						padding: 0px 0px; 
+						position:absolute;
+						color: #15428B;
+						text-align: center;
+						width: 40px;
+						margin-top: 10px;
+						margin-left: -15px;
+						font-size: .9em;
+}
+#navigation li.disabled .textseparator {
+						color: gray;
+}
+
+/* Die buttons zum Links-/Rechsscrollen. */
+#navigation .scrollarea {
+            background-color: #dee8f6;
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            margin: 1px 0px 1px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 20px;
+            opacity: .9;
+}
+
+#navigation .scrollarea:hover {
+            opacity: 1;
+}
+
+#navigation .scrollarea.left {
+            left: 0;
+            background-image: url(../../images/arrow_left.png);
+}
+#navigation .scrollarea.right {
+            right: 0;
+            background-image: url(../../images/arrow_right.png);
+}

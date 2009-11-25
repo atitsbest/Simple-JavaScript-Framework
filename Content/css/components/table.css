@@ -1,0 +1,216 @@
+/* 			                _______________________	*/
+/*			                TABLE                		*/
+/* Passt sich an die Größe des Browsers an und gibt der Tabelle einen scrollbaren Bereicht, ohne das der Browser scrollen muss. */ 
+div.contentcontainer {
+	                      margin: 0 auto; 
+	                      overflow: auto; 
+	                      position: absolute;
+	                      top: 81px;    /* Für IE in ie.css ändern */
+	                      right: 0px; /* Breite und Höhe sind in global.js:resizeLayout zu finden */
+	                      bottom: 0px;   
+	                      left: 0px;
+}
+div.tableheader {
+	                      margin: 0 auto; 
+	                      overflow: hidden; 
+	                      left: 0px;
+	                      right: 0px;
+}
+/* Enthält den Spaltenheader, der mit der Tabell mitscrollen soll. */
+div.tableheader > .headercontainer {
+	                      /* Der ganze rechte Teil des Tableheaders ist immer leer wärend der
+                           restliche Header ein Hintergrundbild hat. Damit das auch der Teil 
+                           der für die Scrollbar ausgespart wird ein Hintergrundbild hat, müssen
+                           wir es hier als Hintergrund für den .tableheader setzen. */
+	                      background: #fff url(../content/images/table/table_header_23.png) repeat-x top;
+	                      overflow: hidden; 
+	                      width: 100%;
+}
+
+/* 			                _______________________	*/
+/*			                DATA                 		*/
+table.data {
+                        background-color: #ffffff;
+                        table-layout: fixed;
+                        width: 100%;
+}
+table.data.selectable {
+                        /* Damit die Einträge nicht auswählbar sind */
+                        -moz-user-select: none;
+                        -khtml-user-select: none;
+                        user-select: none;                        
+}
+
+/* Header */
+table.data.header {
+                        background: #d8d8d8 url(../content/images/table/table_header_23.png) repeat-x top;
+                        border-bottom: 1px solid #d8d8d8;
+                        padding-right: 15px;
+}
+
+/* Tabellen-Header */
+table.data thead tr th {
+	                      /* Optische Spalten-Trenner */
+	                      border-left: 1px solid #f1f1f1;
+	                      border-right: 1px solid #d8d8d8;
+	                      height: 22px;
+	                      /* Abstand vom linken Spalten-Trenner */
+	                      overflow: hidden;
+	                      padding-left: .3em;
+                        position: relative;
+	                      vertical-align: middle;
+	                      white-space: nowrap;
+}
+
+table.data thead tr th span {
+                        display:block;
+                        height: 17px;
+                        margin-top: 4px;
+	                      overflow: hidden;
+                        position: relative;
+                        vertical-align: top;
+}
+
+/* hier muss das display für sprites gesetzt werden, weil ansonsten das ein-/ausblenden
+durch den obigen Style nicht funktioniert */
+table.data thead tr th span.sprite.hide 
+{
+	display: none;
+}
+table.data thead tr th span.sprite 
+{
+	display: inline-table;
+}
+
+/* Sortier-Status */
+table.data thead tr th.sorted span.sort_state {
+                        height: 4px;  
+                        top: 0px;
+                        left: 0px;
+                        position: absolute;
+                        width: 100%;
+}
+table.data thead tr th.sorted span.sort_state {
+                        background: url(../content/images/table/asc.gif) no-repeat center;
+                        top: -4px;
+}
+table.data thead tr th.desc span.sort_state {
+                        background: url(../content/images/table/desc.gif) no-repeat center;
+                        top: 8px;
+}
+
+/* Filter-Status */
+table.data thead tr th span.filter_state {
+                        background: url(../content/images/table/filter.gif) no-repeat right;
+                        position: absolute;
+                        height: 12px;
+                        width: 100%;
+                        top: -2px;
+                        left: -2px;
+}
+/* Ist die letzte Spalte, damit es beim horizontalen Scrollen nicht zu Verschiebungen der Spalten kommt. */
+table.data.header thead tr th.scrollmargin {
+                        border-right: none;
+                        border-bottom: none;
+}
+
+/* Eine Tabellenzeile */
+table.data thead tr {
+						            position:relative;
+}
+
+/* Datenzeile */
+table.data tbody tr td {
+                        background-color: #fff;
+                        border-bottom: 1px solid #d8d8d8;
+                        /*border-left: 1px solid #d8d8d8;*/
+                        cursor: default;
+                        height: 28px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        vertical-align: middle;
+                        white-space: nowrap;
+}
+table.data tbody tr td p {
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+}
+/* Hover */
+table.hover tbody tr.hover td {
+                        background-color: beige;
+}
+/* Disabled */
+table tbody tr.disabled td {
+                        color: #707070;
+}
+
+/* Mengeneinheit disabled */
+table tbody tr.disabled td.me a {
+                        color: #ADADAD;
+}
+
+/* Inhalt der Datenzeile */
+table.data tbody tr td p {
+                        overflow: hidden;
+                        padding: 0 .3em;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+}
+
+/* Alternativer Zeilenhintergrund */
+table.data tbody tr.odd td {
+                        background-color: #f1f1f1;
+}
+
+/* Ausgewählte Zeile */
+table.data tbody tr.selected td {
+                        /* Die ausgewählte Zeile soll sofort sichtbar sein, und auch nicht mehr durch einen :Hover überdeckt werden. */
+                        background-color: #22318a !important;
+                        color: #fff;
+}
+/* Die erste Zelle in einer ausgewählten Zeile hat einen linken Border */
+table.data tbody tr.selected td.first {
+}
+/* Die letzte Zelle in einer ausgewählten Zeile hat einen rechten Border */
+table.data tbody tr.selected td.last {
+                        border-right: 1px dotted #727272;
+}
+/* Keine Daten gefunden. */
+table.data td.nodata {
+                        border: none;
+                        color: #d8d8d8;
+                        text-align: center;
+}
+/* Jedes Bild in einer Zelle wir als "klickbar" angenommen. */
+table.data tbody tr td img {
+                        cursor: pointer;
+}
+
+/* Damit Inputs innerhalb einer Tabelle auswählbar bleiben. */
+table.data input {
+                        -moz-user-select: normal !important;
+                        -khtml-user-select: auto;
+                        user-select: normal;                        
+}
+
+/* Aus einem Image mach einen Button */
+.button {
+                        cursor: pointer;
+}
+.button.green:hover {
+                        background-color: #99e673;
+                        border: 1px solid #60bf30;
+}
+.button.blue:hover {
+                        background-color: #ced7e5;
+                        border: 1px solid #93baff !important;
+}
+.button.red:hover {
+                        background-color: #ffbfbf;
+                        border: 1px solid #b38686 !important;
+}
+.button.grey:hover {
+                        background-color: #f1f1f1;
+                        border: 1px solid #d8d8d8;
+}

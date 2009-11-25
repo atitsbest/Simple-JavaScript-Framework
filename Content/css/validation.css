@@ -1,0 +1,13 @@
+/* 			                _______________________	*/
+/*			                VALIDATION              */
+input.error { 
+                        border: 2px solid red; 
+}
+select.error { 
+                        background: #ffbfbf; 
+                        border: 1px solid #c00;
+                        color: #8f0000;
+}
+textarea.error { 
+                        border: 1px solid red; 
+}

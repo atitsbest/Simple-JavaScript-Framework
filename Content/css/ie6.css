@@ -1,0 +1,28 @@
+/* 			                _______________________	*/
+/*			                TABLECONTAINER       		*/
+/* Passt sich an die Größe des Browsers an und gibt der Tabelle einen scrollbaren Bereicht, ohne das der Browser scrollen muss. */ 
+div.contentcontainer {
+	                      top: 55px; /* Für FF in table.css ändern */
+}
+#modellists div.contentcontainer {
+	                      top: 82px; /* Für FF in table.css ändern */
+}
+#quantityproposals div.contentcontainer {
+	                      top: 155px; /* Für FF in table.css ändern */
+}
+
+/* "Container" für die Widgets */
+#sidebar dl.entries {
+                        width: 100%;
+}
+
+/* 			                _______________________	*/
+/*			                DATA                 		*/
+table.data {
+                        border-collapse: collapse; /* Damit auch im IE6 der border angezeigt wird, wenn eine Zeile leer ist. */
+}
+
+/* Sortier-Status */
+table.data thead tr th.desc span.sort_state {
+                        top: 7px;
+}

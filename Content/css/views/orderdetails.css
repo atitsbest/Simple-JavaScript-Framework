@@ -1,0 +1,65 @@
+/* 			                _______________________	*/
+/*			                SKU                 		*/
+ul.sku {
+                        padding-left: 2em;
+}
+ul.sku ol {
+                        padding-bottom: 1em; /* Keine Ahnung warum, aber diese Zeile verhindert beim IE einen Abstand zwischen den Zeilen (Größen). */
+}
+/* Ein Listeneintrag */
+ul.sku li {
+                        clear: both;
+                        height: 2em;
+}
+ul.sku li.odd ol li {
+                        background-color: #f1f1f1;
+}
+ul.sku ol li {
+                        clear: none;
+                        float: left;
+}
+/* Erste Zelle in einer Zeile */
+ul.sku ol li.first {
+                        border-left: 1px solid #d8d8d8;
+}
+/* Letzte Zelle in einer Zeile */
+ul.sku ol li.last {
+                        border-right: 1px solid #d8d8d8;
+}
+/* Der Inhalt einer Zelle */
+table.data tbody tr td p,
+ul.sku ol li p {
+                        padding: .5em .2em;
+}
+
+/* 			                _______________________	*/
+/*			                SPALTEN              		*/
+/* Es folgen die Breiten der Spalten: */
+ul.sku ol li.size {     
+                        width: 50px; 
+}
+ul.sku ol li.purchaseprice {     
+                        width: 100px; 
+}
+ul.sku ol li.purchasevalue {     
+                        width: 100px; 
+}
+ul.sku ol li.status {     
+                        width: 40px; 
+}
+ul.sku ol li.date {     
+                        background-color: #f7f7f7;
+                        width: 40px; 
+}
+ul.sku ol li.odd li.date {     
+                        background-color: #efefef;
+}
+ul.sku ol li.date.empty {     
+                        color: #d8d8d8; 
+}
+
+/* Eine Header-Spalte */
+ul.sku ol.header li {
+                        border-bottom: 1px solid #d8d8d8;
+                        color: #d8d8d8;
+}

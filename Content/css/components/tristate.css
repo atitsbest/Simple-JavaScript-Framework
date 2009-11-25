@@ -1,0 +1,26 @@
+/* 			                _______________________	*/
+/*			                CHECKBOX             		*/
+.tristate.checkbox {
+  background-repeat: no-repeat;
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+}
+
+/* Ausgewählt */
+.tristate.checkbox.checked {
+  background-image: url(../../images/tristate/checkbox_checked.png);
+}
+/* Abgewählt */
+.tristate.checkbox.unchecked {
+  background-image: url(../../images/tristate/checkbox_unchecked.png);
+}
+/* Teilw. ausgewählt */
+.tristate.checkbox.partly {
+  background-image: url(../../images/tristate/checkbox_partlychecked.png);
+}
+
+/* Verborgen */
+.tristate.checkbox.hide {
+    display: none;
+}

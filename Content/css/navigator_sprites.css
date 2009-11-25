@@ -1,0 +1,53 @@
+.navigator_sprite {
+		background: transparent url(../images/navigator_sprites.png) no-repeat;
+    display: inline-block;
+}
+
+	.header_curve_png {
+		background-position: -0px -0px;
+		width: 18px;
+		height: 18px;
+	}
+	
+	.menu_dropdown_arrow_png {
+		background-position: -18px -0px;
+		width: 5px;
+		height: 3px;
+	}
+	
+	.navigator_active_inactive_png {
+		background-position: -23px -0px;
+		width: 7px;
+		height: 33px;
+	}
+	
+	.navigator_inactive_active_png {
+		background-position: -30px -0px;
+		width: 7px;
+		height: 33px;
+	}
+	
+	.navigator_inactive_inactive_png {
+		background-position: -37px -0px;
+		width: 7px;
+		height: 33px;
+	}
+	
+	.navigator_or_active_inactive_png {
+		background-position: -44px -0px;
+		width: 7px;
+		height: 33px;
+	}
+	
+	.navigator_or_inactive_active_png {
+		background-position: -51px -0px;
+		width: 7px;
+		height: 33px;
+	}
+	
+	.navigator_or_inactive_inactive_png {
+		background-position: -58px -0px;
+		width: 7px;
+		height: 33px;
+	}
+	

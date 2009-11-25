@@ -1,0 +1,8 @@
+/* 			                _______________________	*/
+/*			                TABLE                		*/
+/* Datenzeile */
+table.data.paging tbody tr.placeholder td {
+                        background-color: #fff;
+                        border: none;
+                        cursor: default;
+}

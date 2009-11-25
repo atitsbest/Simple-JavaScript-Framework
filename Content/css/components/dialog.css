@@ -1,0 +1,40 @@
+/* 			                _______________________	*/
+/*			                DIALOG                  */
+.dialog {
+                        background-color: #fff;
+                        border: 1px solid #99bbe8;
+                        cursor: default;
+}
+/* Überschrift */
+.dialog h1 {
+	                      background: #fff url(../content/images/headline.png) repeat-x;
+                        color: #15428B;
+	                      font-size: 14px;
+	                      font-weight: bold;
+	                      height: 17px;
+	                      letter-spacing: 1px;
+	                      line-height: 1em;
+	                      margin: 0;
+	                      padding: .6em .5em .5em 1em;
+	                      text-align: left;
+}
+
+.dialog p.text {
+                        border-bottom: 1px solid #ccc;
+                        color: #000;
+                        font-size: 12px;
+                        line-height: 1.5em;
+                        margin: 1.5em;
+                        padding-bottom: 2em;
+                        text-align: left;
+}
+
+/* Liste mit allen Buttons */
+.dialog ol.buttons {
+                        margin: 1em 2em 1.5em;
+                        text-align: right;
+}
+
+.dialog ol.buttons li {
+                        display: inline;
+}

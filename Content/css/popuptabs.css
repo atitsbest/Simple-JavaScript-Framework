@@ -1,0 +1,54 @@
+/* 			                _______________________	*/
+/*			                POPUPTABS               */
+
+#popuptabs li.active {
+	background-image: url(../images/navigator/navigator_active.png); 
+    color: blue;
+}
+
+#popuptabs ul li.inactive {
+	background-image: url(../images/navigator/navigator_inactive.png); 
+    color: blue;
+}
+
+#popuptabs h2 
+{
+						background: transparent;
+						background-image: none;
+						display: inline;
+                        padding: 0px 20px;
+                        position:relative;
+                        top: 10px;
+                        font-weight: normal;
+}
+
+#popuptabs ul {
+                        background-image: url(../images/navigator/navigator_inactive.png); 
+                        background-repeat: repeat-x;            
+                        overflow: hidden;
+                        min-width: 600px;
+                        width: 100%;
+                        height: 33px;
+}
+
+#popuptabs ul li.first {
+						border-left-width:0px;
+}
+
+#popuptabs ul li { 
+                        height: 33px;
+                        margin: 0;
+                        padding: 0;
+                        float:left;
+                        border-left-width:1px;
+						border-left-style:solid;
+						border-left-color:#f0f4f8; /* heller */
+						border-right-width:1px;
+						border-right-style:solid;
+						border-right-color:#99bbe8; /* dunkler */
+}
+
+#popuptabs ul li.last {
+						border-right-width:0px;
+}
+

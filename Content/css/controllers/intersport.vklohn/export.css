@@ -1,0 +1,20 @@
+﻿#ExportData 
+{
+  overflow: auto;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 25px;
+  position: absolute;
+}
+
+#ExportData ol 
+{
+  min-width: 600px;
+  padding-left: 1.3em;
+}
+
+#ExportData ol li
+{
+  margin-top: 0.1em;
+}

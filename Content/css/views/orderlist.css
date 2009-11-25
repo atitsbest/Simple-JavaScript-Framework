@@ -1,0 +1,6 @@
+/* Ausgewählte Zeile */
+table.data tbody tr.selected td {
+                        /* Die ausgewählte Zeile soll sofort sichtbar sein, und auch nicht mehr durch einen :Hover überdeckt werden. */
+                        background-color: #22318a !important; 
+                        color: #fff;
+}

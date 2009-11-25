@@ -1,0 +1,455 @@
+.sprite {
+		background: transparent url(../images/sprites.png) no-repeat;
+    display: inline-block;
+}
+
+	.accept_png {
+		background-position: -0px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.accept_semi_png {
+		background-position: -16px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.add_png {
+		background-position: -32px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.back_png {
+		background-position: -48px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.bought_png {
+		background-position: -64px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.bought_semi_png {
+		background-position: -80px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.budget_edit_png {
+		background-position: -96px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.calendar_day_gif {
+		background-position: -112px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.camera_png {
+		background-position: -122px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.cart_png {
+		background-position: -138px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.cart_semi_png {
+		background-position: -154px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.change_order_state_png {
+		background-position: -170px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.change_order_state_1_png {
+		background-position: -186px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.change_order_state_2_png {
+		background-position: -202px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.chart_line_png {
+		background-position: -218px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.chart_line_semi_png {
+		background-position: -234px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.checkbox_checked_png {
+		background-position: -250px -0px;
+		width: 13px;
+		height: 13px;
+	}
+	
+	.checkbox_partlychecked_png {
+		background-position: -263px -0px;
+		width: 13px;
+		height: 13px;
+	}
+	
+	.checkbox_unchecked_png {
+		background-position: -276px -0px;
+		width: 13px;
+		height: 13px;
+	}
+	
+	.close_gif {
+		background-position: -289px -0px;
+		width: 19px;
+		height: 19px;
+	}
+	
+	.close_grey_gif {
+		background-position: -308px -0px;
+		width: 11px;
+		height: 10px;
+	}
+	
+	.closed_gif {
+		background-position: -319px -0px;
+		width: 11px;
+		height: 11px;
+	}
+	
+	.colapsed_gif {
+		background-position: -330px -0px;
+		width: 11px;
+		height: 11px;
+	}
+	
+	.collapse_gif {
+		background-position: -341px -0px;
+		width: 13px;
+		height: 13px;
+	}
+	
+	.copy_png {
+		background-position: -354px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.cross_gif {
+		background-position: -370px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.csv_png {
+		background-position: -380px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.curve_png {
+		background-position: -396px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.details_png {
+		background-position: -412px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.disabled_gif {
+		background-position: -428px -0px;
+		width: 11px;
+		height: 11px;
+	}
+	
+	.down_gif {
+		background-position: -439px -0px;
+		width: 7px;
+		height: 4px;
+	}
+	
+	.edit_png {
+		background-position: -446px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.empty_gif {
+		background-position: -462px -0px;
+		width: 1px;
+		height: 1px;
+	}
+	
+	.exclamation_png {
+		background-position: -463px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.expand_gif {
+		background-position: -479px -0px;
+		width: 13px;
+		height: 13px;
+	}
+	
+	.expanded_gif {
+		background-position: -492px -0px;
+		width: 11px;
+		height: 11px;
+	}
+	
+	.filter_gif {
+		background-position: -503px -0px;
+		width: 12px;
+		height: 12px;
+	}
+	
+	.filter_cancel_gif {
+		background-position: -515px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.help_gif {
+		background-position: -531px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.information_png {
+		background-position: -547px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.magnifier_png {
+		background-position: -563px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.magnify_gif {
+		background-position: -579px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.magnify_minus_gif {
+		background-position: -589px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.magnify_plus_gif {
+		background-position: -599px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.module_png {
+		background-position: -609px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.opened_gif {
+		background-position: -625px -0px;
+		width: 11px;
+		height: 11px;
+	}
+	
+	.order_png {
+		background-position: -636px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.order_visible_png {
+		background-position: -652px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.photo_png {
+		background-position: -668px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.planned_png {
+		background-position: -684px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.planned_semi_png {
+		background-position: -700px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.play_png {
+		background-position: -716px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.plus_gif {
+		background-position: -732px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.printer_png {
+		background-position: -742px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.remove_png {
+		background-position: -758px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.remove_single_png {
+		background-position: -774px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.remove_visible_png {
+		background-position: -790px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.resultset_first_png {
+		background-position: -806px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.resultset_first_grey_png {
+		background-position: -822px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.resultset_last_png {
+		background-position: -838px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.resultset_last_grey_png {
+		background-position: -854px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.resultset_next_png {
+		background-position: -870px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.resultset_next_grey_png {
+		background-position: -886px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.resultset_previous_png {
+		background-position: -902px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.resultset_previous_grey_png {
+		background-position: -918px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.save_png {
+		background-position: -934px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.sort_asc_gif {
+		background-position: -950px -0px;
+		width: 20px;
+		height: 20px;
+	}
+	
+	.sort_desc_gif {
+		background-position: -970px -0px;
+		width: 20px;
+		height: 20px;
+	}
+	
+	.table_refresh_png {
+		background-position: -990px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.tag_green_png {
+		background-position: -1006px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.tick_gif {
+		background-position: -1022px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.tick_png {
+		background-position: -1032px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.tick_selected_gif {
+		background-position: -1048px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.tick_semi_png {
+		background-position: -1058px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	
+	.trash_gif {
+		background-position: -1068px -0px;
+		width: 10px;
+		height: 10px;
+	}
+	

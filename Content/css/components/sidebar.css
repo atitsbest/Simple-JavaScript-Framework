@@ -1,0 +1,229 @@
+/* 			                _______________________	*/
+/*			                SIDEBAR              		*/
+#sidebar {
+                        position: absolute;
+                        top: 70px;
+                        bottom: 3px;
+}
+#sidebar h2 {
+                        width: 239px; /* IE-Bug: Ohne Breitenangabe besteht immer eine weiße Lücke. */  
+                        height: 20px;
+}
+/* Das Icon zum Schließen der Sidebar. */
+#sidebar a.close {
+                        cursor: pointer;
+                        right: 5px;
+                        position: absolute;
+                        top: 9px;
+}
+/* "Container" für die Widgets */
+#sidebar .widgets {
+                        position: absolute;
+                        left: 0px;
+                        top: 32px;
+                        bottom: 0px;
+                        overflow: hidden;
+                        width: 100%;
+}
+/* Klickbarer Header */
+#sidebar .widgets .widget .head {
+                        background: url(../../images/sidebar/sidebar_header_24.png) repeat-x;
+	                      border-top: 1px solid #ffffff;
+	                      height: 24px;
+                        vertical-align: middle;         
+                        width: 100%;
+}
+/* Der Text im Header muss richtig ausgerichtet werden. */
+#sidebar .widgets .widget .head span {
+                        padding-left: .1em;
+                        position: relative;
+                        top: 5px;
+}
+/* Die +/- im Header müssen ausgerichtet werden. */
+#sidebar .widgets .widget .head .sprite {
+                        margin-left: .4em;
+                        padding: 0;
+                        top: 6px;
+}
+/* Disabled Header */
+#sidebar .widgets .widget.disabled .head span {
+	                      color: #d8d8d8;
+	                      margin-left: 17px;
+}
+/* Das Indikator-Bild im Header muss richtig ausgerichtet werden. */
+#sidebar .widgets .widget .head img {
+                        margin: 0;
+                        padding-left: .2em;
+                        position: relative;
+                        top: 5px;
+}
+/* Klickbarer Header:Hover */
+#sidebar .widgets .widget .head:hover {
+                        cursor: pointer;
+}
+
+/* Widget-Body */
+#sidebar .widgets .widget .head .body {
+                        overflow: auto;
+}
+
+/* Kopfteil eines Widgets */
+.widget .head {
+}
+
+/* Hauptbereich eines Widgets */
+.widget .body {
+                        display: none;
+}
+
+/* Zeit den Button zum Öffnen der Sidebar an. */
+#sidebar a.open {
+                        cursor: pointer;
+                        position: absolute;
+                        top: 7px;
+}
+/* 			                _______________________	*/
+/*			                FILTER              		*/
+#sidebar .filter li.unselected {
+}
+#sidebar .filter li.filtered {
+                        display: none;
+}
+
+#sidebar .filter {
+                        background-color: #fff;
+                        margin: 0 1em;
+                        width: 100%;
+}
+
+/* Ein Listeintrag */
+#sidebar .filter ol li {
+                        margin-top: 1em;
+}
+/* Label */
+#sidebar .filter ol li label {
+                        display: block;
+                        font-weight: bold;
+                        margin-bottom: .2em;
+                        text-transform: none;
+}
+/* <Select> */
+#sidebar .filter ol li select {
+                        width: 230px;
+}
+/* Footer */
+#sidebar .filter ol li.footer {
+}
+
+/* Dient nur dazu die Warengruppen scrollen zu können. */
+#sidebar .filter div.materialgroupsContainer {
+                        border: 1px solid #d8d8d8;
+                        max-height: 400px;
+                        overflow: auto;
+                        width: 228px;
+}
+/* Liste der Warengruppen */
+#sidebar .filter ul.materialgroups {
+                        width: 100%;
+}
+#sidebar .filter ul.materialgroups li {
+                        border-bottom: 1px solid #efefef;
+                        margin: 0;
+                        overflow: hidden;
+                        padding: .2em 0;
+}
+/* Auswahlmöglichkeite */
+#sidebar .filter ul.materialgroups li.selectAll {
+                        background-color: #f7f7f7;
+}
+/* Checkbox */
+#sidebar .filter ul.materialgroups li input.checkbox {
+                        padding-top: 3px;
+}
+/* Text */
+#sidebar .filter ul.materialgroups li label {
+                        display: inline;
+                        font-weight: normal;
+                        margin-bottom: 0;
+}
+/* WGR-Nummer */
+#sidebar .filter ul.materialgroups li label.matGroupId {
+                        color: #a5a5a5;
+                        width: 5em;
+}
+
+/* Suchfelder */
+#sidebar .filter ul.materialgroups li.selectAll input#searchCode {
+                        width: 1em;
+}
+
+/* 			                _______________________	*/
+/*			                CARTINFO            		*/
+#cartinfos {
+                        width: 100%;
+}
+
+#cartinfos td {
+                        border: none;
+}
+
+#cartinfos td.state {
+}
+
+#cartinfos tr td.descr {
+                        padding-left: 20px;
+                        text-align: left;
+}
+
+#cartinfos tr td.value {
+                        font-weight: bold;
+                        text-align: right;
+}
+#cartinfos tr td.unit {
+                        padding: 0 20px 0 .5em;
+                        text-align: left;
+}
+#cartinfos tr td.unit small {
+                        color: #adadad;
+                        font-size: .8em;
+}
+#cartinfos tr td {
+                        padding-top: 1em;
+}
+
+/* 			                _______________________	*/
+/*			                DISPOLISTTREE        		*/
+#sidebar .dispolistTree span img {
+                        margin-right: 4px;
+}
+#sidebar .dispolistTree {
+                        background-color: #fff;
+                        overflow: hidden;
+}
+#sidebar .dispolistTree li {
+                        overflow: hidden;
+                        white-space: nowrap;
+}
+/* Eintrag für "Keine Einträge" */
+#sidebar .dispolistTree li.empty {
+                        color: #d8d8d8;
+}
+/* Status Modelltyp: Bestellt */
+#sidebar .dispolistTree li.ordered span {
+                        color: #d8d8d8;
+}
+
+/* Alle Bilder im Tree */
+#sidebar .dispolistTree li img {
+                        border: 1px solid #fff;
+                        cursor: pointer;
+}
+
+/* Alle Bezeichnungen im Tree */
+#sidebar .dispolistTree li span {
+                        overflow: hidden;
+                        padding-left: 2px;
+                        white-space: nowrap;
+}
+
+

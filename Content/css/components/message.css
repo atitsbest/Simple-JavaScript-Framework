@@ -1,0 +1,52 @@
+/* 			                _______________________	*/
+/*			                MESSAGES                */
+.message {
+                        border-top: 1px solid;
+                        border-bottom: 1px solid;
+                        display: none;
+                        padding: .4em 0 .4em 1.2em;
+                        height: 1em;
+                        position: relative;
+                        width: 100%;
+                        z-index: 1; /* Damit's auch im IE6 angezeigt wird. */
+}
+.message.error {
+                        background-color: #ffbfbf;
+                        border-color: #c00;
+                        color: #8f0000;
+                        font-weight: bold;
+}
+.message.info {
+                        background-color: #dee8f6;
+                        border-color: #99bbe8;
+                        border-top: none;
+                        color: #15428B;
+                        font-weight: normal;
+}
+.message.autoSaveInfo {
+                        background-color: #dee8f6;
+                        border-color: #99bbe8;
+                        border-top: none;
+                        color: #15428B;
+                        font-weight: normal;
+}
+.message.filter {
+                        background-color: #ffe7c9;
+                        border-color: #ffcf93;
+                        color: #000;
+                        font-weight: normal;
+                        
+}
+.message.success {
+                        background-color: #00CC00;
+                        border-color: #008F00;
+                        color: #fff;
+                        font-weight: normal;
+                        
+}
+.message.warning {
+                        background-color: #FBE395;
+                        border-color: #E0AA85;
+                        color: #382F24;
+                        font-weight: normal;
+}

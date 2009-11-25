@@ -1,0 +1,14 @@
+﻿#ImportData 
+{
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  top: 25px;
+  position: absolute;
+}
+
+#ImportData ol 
+{
+  min-width: 600px;
+  padding-left: 1.3em;
+}

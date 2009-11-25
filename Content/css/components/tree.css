@@ -1,0 +1,39 @@
+/* 			                _______________________	*/
+/*			                TREE        		        */
+.tree {
+                        margin-right: 4px;
+}
+
+/* Der Knoten eines Baums. */
+.tree .knot {
+                        padding-left: 15px;  /* Jede Hierarchiestufe einrücken. */
+                        padding-top: .5em;
+}
+
+.tree li {
+                        white-space: nowrap;
+}
+
+/* Die Checkbox. */
+.tree .checkbox {
+                        position: relative;
+                        top: 1px;
+}
+
+/* Das Bild für die Budgetinfos. */
+.tree .budgetinfo {
+                        border: 1px solid #fff;
+                        position: relative;
+                        top: 4px;
+}
+
+/* Der Text eines Eintrags. */
+.tree .label {
+                        position: relative;
+                        top: -1px;
+                        white-space: nowrap;
+}
+
+.tree .knot.modeltypes {
+                        padding-left: 30px;
+}

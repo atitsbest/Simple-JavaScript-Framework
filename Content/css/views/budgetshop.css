@@ -1,0 +1,52 @@
+/* 			                _______________________	*/
+/*			                TABLE                		*/
+/* Der Bereich, in dem alle Shops angezeigt werden. */
+div#shopfilter {
+                        background-color: #f1f1f1;
+                        border-bottom: 1px solid #d8d8d8;
+                        color: #666;
+                        max-height: 8em;
+                        padding: 1em 0 1em 1em;
+}
+div#shopfilter h3 {
+                        font-weight: bold;
+}
+
+#budgetshop tr td {
+                        border-right: 1px solid #d8d8d8;
+                        padding-right: 1px;
+}
+
+#budgetshop tr td.materialgroup {
+                        background-color: #f1f1f1 !important;
+}
+
+/* Summenzeile */
+#budgetshop tr.sum td {
+                        border-top: 1px solid #d8d8d8;
+                        border-bottom: 2px solid #000;
+                        color: #15428b;
+                        font-weight: bold;
+}
+/* Gesamt-Summenzeile */
+#budgetshop tr.sum.total td {
+                        border: none;
+                        color: #000;
+}
+
+/* Liste aller möglichen Shops. */
+div#shopfilter ul.shops {
+                        width: 100%;
+                        max-height: 8em;
+                        overflow: auto;
+}
+/* Ein Eintrag in der Liste aller möglichen Shops. */
+div#shopfilter ul.shops li {
+                        display: inline;
+                        float: left;
+                        margin-bottom: .2em;
+                        padding: 0;
+                        text-align: left;
+                        width: 15em;
+}
+

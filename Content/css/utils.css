@@ -1,0 +1,20 @@
+/* 			                _______________________	*/
+/*			                MISC HELPER-CLASSES     */
+.money {
+                      	text-align: right;
+}
+.number {
+	                      text-align: right;
+}
+.center {
+                      	text-align: center;
+}
+.hide {
+                       	display: none;
+}
+.right {
+	                      text-align: right;
+}
+.clickable {
+                        cursor: pointer;
+}

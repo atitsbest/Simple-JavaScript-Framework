@@ -1,0 +1,20 @@
+/* 			                _______________________	*/
+/*			                FOOTER              		*/
+ol.footer {
+                        border-bottom: none !important;
+                        border-top: 1px solid #99bbe8;
+                        bottom: 0px;
+                        position: absolute;
+}
+
+/* Buchstaben */
+ol.footer ol.letters {
+                        position: absolute;
+}
+
+/* Ein Buchstabe */
+ol.footer ol.letters li {
+                        cursor: pointer;
+                        list-style-type: none;
+                        text-align: center;
+}

@@ -1,0 +1,52 @@
+/* 			                _______________________	*/
+/*			                TABLECONTAINER       		*/
+div.tablecontainer {
+	                      top: 81px; /* Für IE in ie.css ändern */
+}
+
+/* 			                _______________________	*/
+/*			                MODELLIST            		*/
+.modellist tbody tr td {
+	                      padding: 0 1px; /* Dann klappts auch mit der Spaltenbreite */
+}
+
+/* 			                _______________________	*/
+/*			                ZEILEN-MARKIERUNGEN  		*/
+/* Ausgewähltes Modell/Modelltyp */
+.modellist tr.selected td {
+                        background-color: #22318a !important;
+                        color: #fff;
+}
+/* Modell mit ein paar ausgewählten Modelltypen */
+.modellist tr.semi_selected td {
+                        background-color: #d1d9ff !important;
+}
+
+/* Openclose */
+.modellist td.openclose {
+                        background-color: #fff !important;
+                        border-right: 1px solid #d8d8d8; 
+                        border-bottom-color: #f7f7f7; 
+}
+.modellist tr.modeltype td.openclose {
+                        border-top: none; 
+}
+
+/* Die Stati */
+.modellist td.image_states .states ul li {
+                        display: block;
+                        float: left;
+                        padding: 0;
+                        text-align: center;
+                        width: 29px;
+}
+
+/* Das Bild mit Stati  */
+.modellist td.image_states .image ul {
+                        display: inline;
+                        float: right;
+                        margin-right: 5px;
+}
+.modellist td.image_states .image ul li {
+                        height: 18px;
+}

@@ -1,0 +1,116 @@
+/* 			                _______________________	*/
+/*			                FILTER               		*/
+#filter {
+                        background: #f7f7f7 url(../content/images/filter/menu_bg.gif) repeat-y;
+	                      border: 1px solid #d4d0c8;
+	                      display: none;
+	                      padding: 0;
+	                      position: absolute;
+	                      text-align: left;
+	                      width: 180px;
+}
+
+#filter fieldset {
+	                      border: none;
+}
+#filter fieldset.submit {
+	                      margin: 0 0 0 3px;
+	                      padding: .7em 0 .8em;
+}
+
+#filter ol.entries {
+	                      border: none;
+	                      margin: 0;
+	                      padding: 0;
+}
+#filter ol.entries li {
+	                      border: none;
+	                      height: 24px;
+	                      margin: 0 0 .3em;
+	                      padding: 0;
+}
+#filter ol.entries li.separator {
+                        border-top: 1px solid #e6e6e6;
+                        margin-top: .5em;
+                        padding-top: .5em;
+}
+
+#filter ol.entries li a {
+                        display: block;
+                        height: 100%;
+                        margin: 1px;
+                        padding: 1px;
+                        text-decoration: none;
+}
+#filter ol.entries li a.cancel {
+                        display: inline;
+                        text-decoration: none;
+}
+#filter ol.entries li a:hover {
+                        background-color: #ffff80;
+                        border: 1px solid #d4d0c8;
+                        padding: 0;
+}
+#filter ol.entries li a span.sprite {
+                        margin: 1px 0 0 0px;
+}
+#filter ol.entries li a span.text {
+                        margin-left: 10px;
+                        position: relative;
+                        top: -4px;
+}
+
+#filter ol.entries li.values {
+                        height: auto;
+                        padding-bottom: .5em;
+}
+#filter ol.entries li.values span.sprite {
+                        margin: 3px 0 0 4px;
+}
+#filter ol.entries li.values input {
+                        margin-left: 9px;
+}
+#filter ol.entries li.values fieldset {
+                        margin: 10px 0 0 15px;
+}
+#filter ol.entries input#filtersubmit {
+                        margin-left: 12px;
+}
+
+/*                      Values */
+#filter ul.values {
+	                      background-color: #fff;
+	                      border: 1px solid #e6e6e6;
+	                      margin: 0 3px 0 28px;
+	                      max-height: 200px;
+	                      overflow: auto;
+	                      padding: 0px;
+}
+
+#filter ul.values li {
+                      	cursor: pointer;
+                      	margin: 0;
+                      	padding: 0;
+                      	white-space: nowrap;
+}
+#filter ul.values li:hover {
+	                      background-color: #22318a;
+	                      color: #fff;
+}
+
+#filter ul.values li label {
+                      	overflow: hidden;
+                      	white-space: nowrap;
+}
+
+#filter #productlinelist td.count {
+	                      text-align: right;
+}
+
+#filter #productlinelist td.money {
+	                      text-align: right;
+}
+
+#filter img.resize {
+                        float: right;
+}

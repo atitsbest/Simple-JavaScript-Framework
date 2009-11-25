@@ -1,0 +1,10 @@
+/* 			                _______________________	*/
+/*			                TABLE                		*/
+#shopDuplicationDialog table.data td {
+                        height: 32px;
+                        text-align: center;
+}
+
+#shopDuplicationDialog select {
+                        width: 100px;
+}

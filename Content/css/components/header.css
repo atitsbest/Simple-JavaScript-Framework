@@ -1,0 +1,182 @@
+/* 			                _______________________	*/
+/*			                HEADER               		*/
+#header {
+                        border-bottom: 1px solid #d8d8d8;
+}
+
+/* Das Hilfe Icon */
+#header .help {
+                        position: absolute;
+                        top: 21px;
+                        right: 6px;
+}
+
+/* Das IntersportBild */
+#header > .branding {
+                        margin-left: 0px;
+                        padding-top: 5px;
+}
+/* Tabelle mit angemeldetem Benutzer, ... */
+#header table.info {
+                        background-color: #fff;
+                        border-right: 1px dotted #d8d8d8;
+                        position: absolute;
+                        padding-right:10px;
+                        right: 174px;
+                        top: 20px;
+}
+/* Beschreibung */
+#header table.info th {
+                        color: #d8d8d8;
+                        padding-right: .5em;
+                        text-align: right;
+}
+/* Wert */
+#header table.info td {
+                        color: #d8d8d8;
+                        font-weight: bold;
+                        text-align: right;
+                        padding-bottom: 4px;
+}
+#header table.info a {
+                        color: #d8d8d8;
+                        text-decoration: underline;
+}
+
+/* Zeigt AJAX-Ladevorgang an. */
+#loading {
+                        position: relative;
+                        top: 2px;
+}
+
+/* 			                _______________________	*/
+/*			                HEADERLINE          		*/
+#headline {
+                        border-left: 1px dotted #d8d8d8;
+                        position: absolute;
+                        top: 20px;
+                        left: 225px;
+                        padding-left: 1em;
+}
+
+#headline .dispolist {
+                        color: #d8d8d8;
+                        display: block;
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        position: relative;
+                        margin: -2px 0 2px 0;
+}
+
+#headline .productline {
+												color: #d8d8d8;
+                        display: block;
+                        font-size: 1.2em;
+                        font-weight: bold;
+                        position: relative;
+                        margin: -2px 0 2px 0;
+}
+
+#headline .shop {
+                        color: #d8d8d8;
+}
+
+/* 			                _______________________	*/
+/*			                MENU                 		*/
+#header > .menu {
+                        background-color: #ccc;
+                        border-top: #000;
+                        position: relative;
+                        width: 100%;
+}
+/* Ein horizontaler Menüeintrag */
+#header > .menu > li {
+                        display: inline;
+}
+
+/* Navigator */
+#navigator {
+                        background-color: #dee8f6;
+                        border: 1px solid #d8d8d8;
+                        border-bottom-color: #dee8f6;
+                        color: #15428B;
+                        font-weight: bold;
+                        padding: .3em .5em .4em;
+                        position: absolute;
+                        top: 46px;
+                        left: 5px;
+                        cursor: pointer;
+                        z-index: 10;
+}
+
+/* 			                _______________________	*/
+/*			                HEADER_MENU          		*/
+#header_menu {
+                        background-image: url(../../images/navigator/header_menu_bg.png);
+                        width:180px;
+                        height:18px;
+                        position:absolute;
+                        right:0px;
+                        top:48px;
+}
+
+#header_menu > .entries {
+                        display:inline;
+                        position:relative;
+                        font-size:0.9em;
+                        top:-3px;
+                        color:#99BBE8;
+}
+#header_menu a {
+                        color:#99bbe8;
+}
+
+#header_menu > .entries a {
+                        margin-left: 1em;
+}
+
+
+#header_menu > .entries img.dropdown {
+/*                        border-left: 1px dotted;
+                        border-right: 1px dotted;*/ 
+                        padding:4px 3px 3px;
+                        position:relative;
+                        top: 2px;
+/*                        left: 3px;*/
+}
+
+#header_menu .dropdown_menu {
+                        display: none;
+                        background-color: #dee8f6;
+	                      border: 1px solid #99bbe8;
+	                      border-top: none;
+                        position: absolute;
+                        padding: .5em 0;
+                        margin-top: 3px;
+                        margin-left: -59px;
+                        z-index: 10;
+}
+
+#header_menu .dropdown_menu > li {
+                        text-align: right;
+}
+
+#header_menu .dropdown_menu > li a {
+	                      border: 1px solid #dee8f6;
+                        display: block;
+                        padding: .5em 1.51em;
+}
+
+#header_menu .dropdown_menu > li a:hover {
+                        background-color: #ffff80;
+	                      border-color: #d4d0c8;
+	                      color: #383838;
+}
+
+/* Sprachauswahl */
+#languageSelector 
+{
+    position:absolute; 
+    top: 21px; 
+    right: 25px;
+}

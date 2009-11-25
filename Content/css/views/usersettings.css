@@ -1,0 +1,54 @@
+/* 			                _______________________	*/
+/*			                USERSETTINGS            */
+
+#usersettings {
+                        background-color: #fff;                        
+}
+
+#usersettings h3 {
+	                      color: #15428B;
+	                      font-size: 1em;
+	                      font-weight: bold;
+	                      letter-spacing: 1px;
+                        margin: 2em 2em 1em;
+                        text-transform: uppercase;
+}
+
+#usersettings ul.entry {
+                        margin: 1em 2em 1em 2.5em;                        
+}
+
+#usersettings ul.entry li {
+                        border-bottom: 1px dashed #f1f1f1;
+                        height: 22px;
+                        padding: .4em 0;
+                        vertical-align: middle;
+}
+
+#usersettings ul.entry li label {
+                        text-align: left;
+                        float: left;
+                        height: 22px;
+                        vertical-align: middle;
+                        width: 250px;    
+                        padding-bottom: .5em;                    
+}
+
+#usersettings ul.entry li span {
+                        margin-left: 10px;                        
+}
+
+/* Einträge innerhalb einem ul.entry, z.B.: 2x radio für Ja/Nein */
+#usersettings ul.choose li {
+                        float: left;
+}
+#usersettings ul.choose li {
+                        border: none;
+}
+#usersettings ul.choose li label {
+                        float: none;
+                        margin-right: .5em;
+                        position: relative;
+                        top: -3px;
+                        width: auto;
+}

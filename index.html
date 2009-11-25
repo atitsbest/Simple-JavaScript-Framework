@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta name="author" content="infoniqa.com - Stephan Meißner" />
+  <title>JavaScript Framework | DEMO</title>
+
+  <!-- Stylesheets -->
+  <link href="content/css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/typography.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/validation.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/sprites.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/navigator_sprites.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/components/dialog.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/components/footer.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/components/message.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/components/navigation.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/components/table.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/components/table.hover.css" rel="stylesheet" type="text/css" />
+  <link href="content/css/components/toolbar.css" rel="stylesheet" type="text/css" />
+
+  <!--[if lt IE 8]>
+    <link href="content/css/ie.css" rel="stylesheet" type="text/css" />
+  <![endif]-->
+  
+  <!-- Diese Styles sollen alle bereits bestehenden überschreiben, werden also als letztes geladen. -->
+  <link href="content/css/utils.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+  <div id="main">
+  	<div id="panel" class="{ type : 'Panel' }">
+			<div id="message" class="{ type : 'Message' }"></div>
+  	</div>
+  </div>
+  
+  <!-- JavaScript -->
+  <script src="content/scripts/jsload.js" type="text/javascript" charset="utf-8"></script>
+  <script src="content/scripts/dependencies.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript">
+		var app = null;
+		
+  	// Load init.
+		var loader = new JSLoad({
+      tags: dependencies,
+      path: 'content/scripts/',
+      scriptConcatenatorURL: ''
+    });
+
+    // JavaScripts laden...
+    loader.load(['appl'], function(){
+      // Applikationsinstanz erstellen und starten.
+      app = new VKLohn();
+      // Basis Url (z.B.: /ELDL/) in der die Application läuft.
+      app.baseUrl = '/';
+      app.actionExtension = '.aspx';
+      // Starten...
+      app.run();
+      app.message.success('Geladen');
+    });
+
+  </script>
+</body>
+</html>
+
+
+

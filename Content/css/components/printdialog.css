@@ -1,0 +1,45 @@
+#printDialogPanel {
+												position:absolute;
+}
+
+#printdialog {
+												width: 39em;
+}
+
+#printdialog div.printDispolistRegion ul li {
+												text-align:right;
+												left:-13em;
+}
+
+#printdialog div.printShowroomLabelsRegion ul li {
+												text-align:left;
+												left:12em;
+												top: 1em;
+}
+
+#printdialog hr {
+												color: #99BBE8;
+												background-color: #99BBE8;
+												width: 50%;
+												height:0.1em;
+												align:center;
+												margin-top:2em;
+												margin-bottom:2em;
+}
+
+#printdialog input[type="text"] {
+												width:5em;
+}
+
+#printdialog .message {
+												text-align: left;
+												width: 37.8em;												
+}
+
+#printdialog ul li {
+												position:relative;
+												
+}
+
+
+
