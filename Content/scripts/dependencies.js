@@ -42,8 +42,9 @@ var dependencies = [
 		tagOnly: true },
 	
 	/* Base.Controls */
-	{ name: 'base/controls/panel' },
 	{ name: 'base/controls/message' },
+	{ name: 'base/controls/panel' },
+	{ name: 'base/controls/tree' },
 	{ name: 'Base.Controls', 
 		requires: ['Base','base/controls/panel','base/controls/message'],
 		tagOnly: true },
@@ -57,8 +58,9 @@ var dependencies = [
 
 	/* Specs */
 	{ name: 'specs/base/namespace_spec'},
+	{ name: 'specs/base/controls/panel_spec'},
 	{ name: 'Specs',
-		requires: ['specs/base/namespace_spec'],
+		requires: ['specs/base/namespace_spec','specs/base/controls/panel_spec'],
 		tagOnly: true },
 
   

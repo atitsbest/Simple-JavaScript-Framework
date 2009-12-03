@@ -1,0 +1,23 @@
+.sprite {
+		background: transparent url(../images/image.png) no-repeat;
+    display: inline-block;
+}
+
+	.img01_png {
+		background-position: -0px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.img02_png {
+		background-position: -16px -0px;
+		width: 16px;
+		height: 16px;
+	}
+	
+	.img03_gif {
+		background-position: -32px -0px;
+		width: 7px;
+		height: 12px;
+	}
+	

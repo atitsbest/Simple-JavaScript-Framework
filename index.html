@@ -18,7 +18,6 @@
   <link href="content/css/components/table.css" rel="stylesheet" type="text/css" />
   <link href="content/css/components/table.hover.css" rel="stylesheet" type="text/css" />
   <link href="content/css/components/toolbar.css" rel="stylesheet" type="text/css" />
-
   <!--[if lt IE 8]>
     <link href="content/css/ie.css" rel="stylesheet" type="text/css" />
   <![endif]-->
@@ -53,8 +52,8 @@
 	      app.message.success('Geladen: {debug}'.substitute({debug: __DEBUG__ ? 'DEBUG Mode' : ''}));
 	    }
 	    catch(e) {
-	    	alert('Beim Starten der Applikation ist ein Fehler aufgetreten ('+e+')');
-	    	console.log(e);
+	    	alert('Beim Starten der Applikation ist ein Fehler aufgetreten ({error})'.substitute({error:e}));
+	    	if (console) {console.log(e);}
 	    }
   	}
 		

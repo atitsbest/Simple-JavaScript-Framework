@@ -1,0 +1,13 @@
+.sprite {
+		background: transparent url(../content/images/<%= File.basename(@image_filename) %>) no-repeat;
+    display: inline-block;
+}
+
+<% for detail in @image_details %>
+	.<%= File.basename(detail[:filename]).gsub(/\./, '_') %> {
+		background-position: -<%= detail[:x] %>px -<%= detail[:y] %>px;
+		width: <%= detail[:width] %>px;
+		height: <%= detail[:height] %>px;
+	}
+	
+<% end %>

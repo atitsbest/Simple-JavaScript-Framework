@@ -1,6 +1,13 @@
-/**
- */
-var Tree = Control.extend(/** @lends Tree# */{
+/**@namespace Base.Controls*/
+Base.namespace('Base.Controls');
+
+Base.Controls.Tree = new Class(/** @lends Base.Controls.Tree# */{
+
+	/**@ignore*/
+	Extends: Base.Control,
+
+	/**@ignore*/
+	Implements: Events,
 
   /**
    * Funktionalität für einen Baum.
@@ -9,19 +16,15 @@ var Tree = Control.extend(/** @lends Tree# */{
    * - Sind alle Kinder eines Knoten ausgewählt ist der Knoten selber ausgewählt.
    * - Sind einige aber nicht alle Kinder eines Knoten ausgewählt ist der Knoten selber halb ausgewählt.
    * - Sind keine Kinder eines Knoten ausgewählt ist der Knoten selber nicht ausgewählt.
-   * @class Tree
+   * @class Base.Controls.Tree
+	 * @extends Base.Control
+	 * @extends Events
    * @constructs
    * @param element HTML-Element für diese Control.
    * @param options Kombination aus Metadata element und Metadata unter dem Element.
    */
   init: function(element, options) {
-    this._super(element, options);
-
-    // Members:
-
-    // Publishers:
-    this.onNodeClicked = new Publisher();
-    this.selectionChanged = new Publisher();
+    this.parent(element, options);
   },
 
   /**
@@ -31,17 +34,18 @@ var Tree = Control.extend(/** @lends Tree# */{
     var that = this;
 
     // Ein Klick für alle Controls.
-    this.$element.unbind('click').click(function(e) { that.onClick($(e.target)); });
+    this.$element.unbind('click').click(this.onClick.bind(this));
 
-    this._super();
+    this.parent();
   },
 
   /**
    * Ein Klick für alle Controls innerhalb des Baums,
    * damit das Teil besser skaliert.
-   * @param $target Welches Element aus dem Baum wurde angeklickt.
+   * @param e Eventstruktur des Browsers.
    */
-  onClick: function($target) {
+  onClick: function(e) {
+  	var $target = $(e.target);
     if ($target.is('.expanded')) {
       this.colapseBranch($target);
     }
@@ -52,7 +56,7 @@ var Tree = Control.extend(/** @lends Tree# */{
       this.onSelectionChanged($target);        
     }
     else {
-      this.onNodeClicked.deliver($target);
+      this.fireEvent('nodeClicked',$target);
     }
   },
 
@@ -60,11 +64,11 @@ var Tree = Control.extend(/** @lends Tree# */{
    * Wenn sich die Auswahl (Checkboxen) geändert hat.
    * @param $checkbox Die Checkbox deren Status geändert wurde.
    */
-  onSelectionChanged: function($checkbox, check) {
+  onSelectionChanged: function(/**jQuery*/$checkbox, check) {
     var that = this;
     // Wird ein Knoten aus-/abgewählt sollen alle Kinder aus-/abgewählt werden.
     this.changeSelection($checkbox, check, function() {
-      that.selectionChanged.deliver();
+      that.fireEvent('selectionChanged');
     });    
   },
 
@@ -74,7 +78,7 @@ var Tree = Control.extend(/** @lends Tree# */{
    * @param check false = abwählen, true = anwählen, undefined = toggle 
    * @param callback wird aufgerufen, wenn asynchroner Aufruf beendet
    */
-  changeSelection: function($checkbox, check, callback) {
+  changeSelection: function($checkbox, check, /**function*/callback) {
     var that = this;
     // Status der Checkbox ändern.
     if (check == false)
@@ -97,7 +101,7 @@ var Tree = Control.extend(/** @lends Tree# */{
    * Knoten ausklappen.
    * @param $target Open/Close des Knotens.
    */
-   expandBranch: function($target) {
+   expandBranch: function(/**jQuery*/$target) {
     $target.siblings('ol').show();
     $target
       .addClass('hide')
@@ -108,7 +112,7 @@ var Tree = Control.extend(/** @lends Tree# */{
    * Knoten einklappen.
    * @param $target Open/Close des Knotens.
    */
-  colapseBranch: function($target) {
+  colapseBranch: function(/**jQuery*/$target) {
     $target.siblings('ol').hide();
     $target
       .addClass('hide')
@@ -119,7 +123,7 @@ var Tree = Control.extend(/** @lends Tree# */{
    * Entfernt ein Element aus dem Baum, mitsamt aller Eltern.
    * @param $li
    */
-  removeNode: function($li) {
+  removeNode: function(/**jQuery*/$li) {
     if (!$li.is('li'))
       return;
 
@@ -138,7 +142,7 @@ var Tree = Control.extend(/** @lends Tree# */{
    * @param $checkbox jQuery-Element der Checkbox
    * @param callback Wird aufgerufen, die Statusänderung bei allen Kindern abgeschlossen ist.
    */
-  _updateChildSelection: function($checkbox, callback) {
+  _updateChildSelection: function(/**jQuery*/$checkbox, /**function*/callback) {
     var checked = TristateCheckbox.isChecked($checkbox);
     var completeCount = 0;
     var $children = $checkbox.siblings('ol').find('li > .checkbox,li > input');
@@ -175,7 +179,7 @@ var Tree = Control.extend(/** @lends Tree# */{
    * @param $checkbox
    * @private
    */
-  _updateParentSelection: function($checkbox) {
+  _updateParentSelection: function(/**jQuery*/$checkbox) {
     var that = this;
 
     // 1. Parent ermitteln.
@@ -199,12 +203,13 @@ var Tree = Control.extend(/** @lends Tree# */{
   },
 
   /**
-   * Kombiniert zwei Stati zu einem Dritten der ausbeiden besteht.
-   * @param s1 Status Eins.
-   * @param s2 Status Zwei.
+   * Kombiniert zwei Stati zu einem Dritten der aus beiden besteht.
+   * @param s1 Status Eins (checked,unchecked,partly).
+   * @param s2 Status Zwei (checked,unchecked,partly).
+   * @returns {String} (checked,unchecked,partly)
    * @private
    */
-  _combineSelectionState: function(s1, s2) {
+  _combineSelectionState: function(/**String*/s1, /**String*/s2) {
     return s1 == s2
       ? s1
       : 'partly';

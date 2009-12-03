@@ -28,6 +28,8 @@
             <string>Content\scripts\base\control.js</string>
             <key>createboo</key>
             <string>..\..\..\Ror\bookr\db\migrate\20091103130523_create_bookings.rb</string>
+            <key>depe</key>
+            <string>Content\scripts\dependencies.js</string>
             <key>depen</key>
             <string>Content\scripts\dependencies.js</string>
             <key>env</key>

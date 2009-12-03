@@ -1,9 +1,3 @@
-desc "Ringing the bell."
-task :ring do
-	puts "Ring, ring"
-end
+# Neue Tasks in das Verzeichnis Tools/Tasks einfügen.
 
-desc "A Bruce Lee movie."
-task :enter => :ring do
-	puts "Enter the dragon."
-end
+Dir['tasks/*.rb'].each {|file| require file}
