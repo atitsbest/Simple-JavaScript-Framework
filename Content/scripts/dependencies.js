@@ -3,43 +3,70 @@
  * aufgelöst. 
  */
 var dependencies = [
-	
+
+  /* System.jQuery */
+  { name: 'system/jquery/jquery-1.3.2' },
+  { name: 'system/jquery/jquery.blockit' },
+  { name: 'system/jquery/jquery.color' },
+  { name: 'system/jquery/jquery.form' },
+  { name: 'system/jquery/jquery.dimensions.pack' },
+  { name: 'system/jquery/jquery.metadata' },
+  { name: 'system/jquery/jquery.scrollto.min' },
+	{ name: 'System.jQuery', 
+		requires: ['system/jquery/jquery-1.3.2','system/jquery/jquery.blockit','system/jquery/jquery.color',
+							 'system/jquery/jquery.form','system/jquery/jquery.dimensions.pack',
+							 'system/jquery/jquery.metadata','system/jquery/jquery.scrollto.min'], 
+		tagOnly: true },
+
+	/* System.Mootools */
+	{ name: 'system/mootools/mootools-1.2.4-core-custom' },
+	{ name: 'system/mootools/mootools-1.2.4-core' },
+	{ name: 'system/mootools/mootools-1.2.4.2-more' },
+	{ name: 'system/mootools/class/mutators/static' },
+	{ name: 'System.Mootools', 
+		requires: ['system/mootools/mootools-1.2.4-core','system/mootools/mootools-1.2.4.2-more','system/mootools/class/mutators/static'],
+		tagOnly: true },
+
   /* System */
-  { name: 'jquery/jquery-1.3.2.min' },
-	{ name: 'mootools-1.2.4-core-nc' },
-	{ name: 'mootools-1.2.4.2-more-nc' },
-	{ name: 'class/mutators/static' },
-	{ name: 'mvc' },
-	{ name: 'controls/control' },
-	{ name: 'app' },
-	{ name: 'vklohn' },
-	{ name: 'baselib', 
-		requires: ['jquery/jquery-1.3.2.min',
-							 'mootools-1.2.4-core-nc','mootools-1.2.4.2-more-nc','mutators/staticmutator',
-							 'mvc','controls/control',
-							 'app','vklohn'], 
+	{ name: 'System', 
+		requires: ['System.jQuery','System.Mootools'],
 		tagOnly: true },
 
-
-  /* jQuery */
-  { name: 'jquery/jquery.blockit' },
-  { name: 'jquery/jquery.color' },
-  { name: 'jquery/jquery.form' },
-  { name: 'jquery/jquery.dimensions.pack' },
-  { name: 'jquery/jquery.metadata' },
-  { name: 'jquery/jquery.scrollto.min' },
-	{ name: 'jquery', 
-		requires: ['jquery/jquery.blockit','jquery/jquery.color','jquery/jquery.form','jquery/jquery.dimensions.pack',
-		           'jquery/jquery.metadata','jquery/jquery.scrollto.min'], 
+	/* Base */
+	{ name: 'base/namespace' },
+	{ name: 'base/mvc' },
+	{ name: 'base/control' },
+	{ name: 'base/application' },
+	{ name: 'Base', 
+		requires: ['System','base/namespace','base/mvc','base/control','base/application'],
 		tagOnly: true },
+	
+	/* Base.Controls */
+	{ name: 'base/controls/panel' },
+	{ name: 'base/controls/message' },
+	{ name: 'Base.Controls', 
+		requires: ['Base','base/controls/panel','base/controls/message'],
+		tagOnly: true },
+
+	/* Specs.Framework */
+	{ name: 'specs/diff_match_patch'},
+	{ name: 'specs/jsspec' },
+	{ name: 'Specs.Framework',
+		requires: ['specs/diff_match_patch','specs/jsspec'],
+		tagOnly: true },
+
+	/* Specs */
+	{ name: 'specs/base/namespace_spec'},
+	{ name: 'Specs',
+		requires: ['specs/base/namespace_spec'],
+		tagOnly: true },
+
   
 
-  /* Application */
-  { name: 'controls/panel' },
-	{ name: 'controls/message' },
-	{ name: 'application' },
-	{ name: 'appl', 
-		requires: ['baselib','jquery','controls/control','controls/panel','controls/message', 'application'], 
+  /* Intersport.VKLohn */
+  { name: 'intersport/vklohn/application' },
+	{ name: 'Intersport.VKLohn', 
+		requires: ['Base.Controls','intersport/vklohn/application'], 
 		tagOnly: true },
 
 

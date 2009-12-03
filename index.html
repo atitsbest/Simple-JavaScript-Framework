@@ -28,35 +28,50 @@
 </head>
 <body>
   <div id="main">
-  	<div id="panel" class="{ type : 'Panel' }">
-			<div id="message" class="{ type : 'Message' }"></div>
+  	<div id="panel" class="{ type : 'Base.Controls.Panel' }">
+			<div id="message" class="{ type : 'Base.Controls.Message' }"></div>
   	</div>
   </div>
   
   <!-- JavaScript -->
-  <script src="content/scripts/jsload.js" type="text/javascript" charset="utf-8"></script>
-  <script src="content/scripts/dependencies.js" type="text/javascript" charset="utf-8"></script>
-  <script type="text/javascript">
-		var app = null;
+  <!-- <script src="content/scripts/vklohn_compiled.js" type="text/javascript" charset="utf-8"></script>-->
+   <script src="content/scripts/jsload.js" type="text/javascript" charset="utf-8"></script>
+   <script src="content/scripts/dependencies.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+  	__DEBUG__ = true;
+  	var app = null;
+  	
+  	function startApp() {
+			try {
+	      // Applikationsinstanz erstellen und starten.
+	      app = new Intersport.VKLohn.Application();
+	      // Basis Url (z.B.: /ELDL/) in der die Application läuft.
+	      app.baseUrl = '/';
+	      app.actionExtension = '.aspx';
+	      // Starten...
+	      app.run();
+	      app.message.success('Geladen: {debug}'.substitute({debug: __DEBUG__ ? 'DEBUG Mode' : ''}));
+	    }
+	    catch(e) {
+	    	alert('Beim Starten der Applikation ist ein Fehler aufgetreten ('+e+')');
+	    	console.log(e);
+	    }
+  	}
 		
-  	// Load init.
-		var loader = new JSLoad({
-      tags: dependencies,
-      path: 'content/scripts/',
-      scriptConcatenatorURL: ''
-    });
-
-    // JavaScripts laden...
-    loader.load(['appl'], function(){
-      // Applikationsinstanz erstellen und starten.
-      app = new VKLohn();
-      // Basis Url (z.B.: /ELDL/) in der die Application läuft.
-      app.baseUrl = '/';
-      app.actionExtension = '.aspx';
-      // Starten...
-      app.run();
-      app.message.success('Geladen');
-    });
+  	if (__DEBUG__) {
+	  	// Load init.
+			var loader = new JSLoad({
+	      tags: dependencies,
+	      path: 'content/scripts/',
+	      scriptConcatenatorURL: ''
+	    });
+	
+	    // JavaScripts laden...
+	    loader.load(['Intersport.VKLohn'], startApp);
+  	}
+  	else {
+			startApp();
+  	}
 
   </script>
 </body>

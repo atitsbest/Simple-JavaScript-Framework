@@ -4,12 +4,66 @@
     <dict>
         <key>fileTriggers</key>
         <dict>
+            <key>appli</key>
+            <string>..\..\..\Ror\bookr\app\controllers\application_controller.rb</string>
+            <key>blue</key>
+            <string>..\..\..\Ror\bookr\spec\blueprints.rb</string>
+            <key>bluep</key>
+            <string>..\..\..\Ror\bookr\spec\blueprints.rb</string>
+            <key>boocon</key>
+            <string>..\..\..\Ror\bookr\app\controllers\bookings_controller.rb</string>
+            <key>boocontro</key>
+            <string>..\..\..\Ror\bookr\app\controllers\bookings_controller.rb</string>
+            <key>booking</key>
+            <string>..\..\..\Ror\bookr\app\models\booking.rb</string>
+            <key>booking.rb</key>
+            <string>..\..\..\Ror\bookr\app\models\booking.rb</string>
+            <key>booking_con</key>
+            <string>..\..\..\Ror\bookr\app\controllers\bookings_controller.rb</string>
+            <key>bookingrb</key>
+            <string>..\..\..\Ror\bookr\app\models\booking.rb</string>
             <key>contrjs</key>
             <string>Content\scripts\controls\control.js</string>
             <key>control</key>
-            <string>Content\scripts\controls\control.js</string>
+            <string>Content\scripts\base\control.js</string>
+            <key>createboo</key>
+            <string>..\..\..\Ror\bookr\db\migrate\20091103130523_create_bookings.rb</string>
+            <key>depen</key>
+            <string>Content\scripts\dependencies.js</string>
+            <key>env</key>
+            <string>..\..\..\Ror\bookr\features\support\env.rb</string>
+            <key>envir</key>
+            <string>..\..\..\Ror\bookr\config\environment.rb</string>
+            <key>environ</key>
+            <string>..\..\..\Ror\bookr\config\environment.rb</string>
             <key>message</key>
             <string>Content\scripts\controls\message.js</string>
+            <key>new_book</key>
+            <string>..\..\..\Ror\bookr\features\new_booking.feature</string>
+            <key>pick</key>
+            <string>..\..\..\Ror\bookr\features\step_definitions\pickle_steps.rb</string>
+            <key>sch</key>
+            <string>..\..\..\Ror\bookr\db\schema.rb</string>
+            <key>sche</key>
+            <string>..\..\..\Ror\bookr\db\schema.rb</string>
+            <key>schema</key>
+            <string>..\..\..\Ror\bookr\db\schema.rb</string>
+            <key>show</key>
+            <string>..\..\..\Ror\bookr\app\views\projects\show.html.erb</string>
+            <key>taskcon</key>
+            <string>..\..\..\Ror\bookr\app\controllers\tasks_controller.rb</string>
+            <key>taskcontr</key>
+            <string>..\..\..\Ror\bookr\app\controllers\tasks_controller.rb</string>
+            <key>taskcontro</key>
+            <string>..\..\..\Ror\bookr\app\controllers\tasks_controller.rb</string>
+            <key>taskcontrollerspe</key>
+            <string>..\..\..\Ror\bookr\spec\controllers\tasks_controller_spec.rb</string>
+            <key>taskrb</key>
+            <string>..\..\..\Ror\bookr\app\models\task.rb</string>
+            <key>taskspe</key>
+            <string>..\..\..\Ror\bookr\spec\models\task_spec.rb</string>
+            <key>userrb</key>
+            <string>..\..\..\Ror\bookr\app\models\user.rb</string>
         </dict>
     </dict>
 </plist>

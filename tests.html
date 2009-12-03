@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>JavaScript Framework | Test results</title>
+		<link rel="stylesheet" href="Content/scripts/specs/JSSpec.css" type="text/css" media="screen" title="no title" charset="utf-8">
+		
+		<!-- Code -->
+		<script src="Content/scripts/jsload.js" type="text/javascript" charset="utf-8"></script>
+		<script src="Content/scripts/dependencies.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+	  	// Load init.
+			var loader = new JSLoad({
+	      tags: dependencies,
+	      path: 'content/scripts/',
+	      scriptConcatenatorURL: ''
+	    });
+	
+	    // JavaScripts laden...
+	    loader.load(['Intersport.VKLohn','Specs.Framework','Specs']);
+		</script>
+	</head>
+	<body>
+		<div style="display:none;">
+			<p>
+				A
+			</p>
+			<p>
+				B
+			</p>
+		</div>
+	</body>
+</html>
