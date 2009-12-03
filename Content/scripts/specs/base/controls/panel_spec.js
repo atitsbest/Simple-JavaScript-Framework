@@ -11,7 +11,6 @@ describe("Base.Controls.Panel#initialize", {
 	
 	'should not alter the DOM element if no url is provided': function() {
 		value_of(sut.$element.html()).should_be("");
-	},
-	
+	}
 	
 });

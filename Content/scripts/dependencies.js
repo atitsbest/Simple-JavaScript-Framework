@@ -60,10 +60,8 @@ var dependencies = [
 	{ name: 'specs/base/namespace_spec'},
 	{ name: 'specs/base/controls/panel_spec'},
 	{ name: 'Specs',
-		requires: ['specs/base/namespace_spec','specs/base/controls/panel_spec'],
+		requires: ['Specs.Framework','specs/base/namespace_spec','specs/base/controls/panel_spec'],
 		tagOnly: true },
-
-  
 
   /* Intersport.VKLohn */
   { name: 'intersport/vklohn/application' },

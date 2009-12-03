@@ -42,6 +42,8 @@
             <string>Content\scripts\controls\message.js</string>
             <key>new_book</key>
             <string>..\..\..\Ror\bookr\features\new_booking.feature</string>
+            <key>panelspe</key>
+            <string>Content\scripts\specs\base\controls\panel_spec.js</string>
             <key>pick</key>
             <string>..\..\..\Ror\bookr\features\step_definitions\pickle_steps.rb</string>
             <key>sch</key>

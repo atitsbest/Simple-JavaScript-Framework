@@ -1517,7 +1517,7 @@ JSSpec.Example.id = JSSpec.options.exampleIdBeginsWith;
 
 
 
-window.onload = function() {
+JSSpec.run = function() {
 	if(JSSpec.specs.length > 0) {
 		if(!JSSpec.options.inSuite) {
 			JSSpec.runner = new JSSpec.Runner(JSSpec.specs, new JSSpec.Logger());
