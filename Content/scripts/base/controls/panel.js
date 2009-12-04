@@ -35,6 +35,8 @@ Base.Controls.Panel = new Class(/** @lends Base.Controls.Panel# */{
 	 * Mit dem Parameter [url] kann man angeben von wo das HTML für
 	 * das Panel asynchron geladen werden soll.
 	 * 
+	 * @event finishedLoading
+	 * @event beforeLoading
 	 * @class Base.Controls.Panel
 	 * @extends Base.Control
 	 * @extends Events
@@ -54,7 +56,7 @@ Base.Controls.Panel = new Class(/** @lends Base.Controls.Panel# */{
       if (this.pagingEnabled) {
         var url = $.extend(url, this.url, {params:{getpagecount:true}});
         // Die Anzahl der Seite muss vom Server ermittelt werden.
-        $.getJSON(mvc.buildUrl(url), function(data) {
+        $.getJSON(app.buildUrl(url), function(data) {
           that.pageCount = data.result;
           that.load();
         });
@@ -68,9 +70,8 @@ Base.Controls.Panel = new Class(/** @lends Base.Controls.Panel# */{
 
   /**
    * Controlbaum ist aufgebaut.
-   * @param callback Wird aufgerufen, wenn onReady fertig ist.
    */
-  onReady: function (/**function*/callback) {
+  onReady: function () {
     var that = this;
 
     // Alle Kindercontrols als Properties bereitstellen.
@@ -78,7 +79,7 @@ Base.Controls.Panel = new Class(/** @lends Base.Controls.Panel# */{
        that[ctrl.id] = ctrl;
     });
     
-    this.parent(callback);
+    this.parent();
   },
 
   /**
@@ -86,8 +87,12 @@ Base.Controls.Panel = new Class(/** @lends Base.Controls.Panel# */{
    * @param url=this.url Von hier kommt der Content. Sollte url leer sein wird die url aus den options verwendet.
    */
   load: function(/**string*/url) {
-    var that = this;
     url = url || this.url;
+    
+    // Ohne Url kein Daten laden.
+    if (!url || url.length == 0) {
+    	return;
+    }
     
     // Müssen wir blätter?
     if (this.pagingEnabled) {
@@ -95,22 +100,26 @@ Base.Controls.Panel = new Class(/** @lends Base.Controls.Panel# */{
       url = $.extend(url, {params: {page: this.currentPage}});
     }
 
+		// Benachrichtigen, dass jetzt gleich geladen wird.
+		this.fireEvent('beforeLoading');
+
     // Element mit einer Nachricht blockieren. Die Nachricht (loadMessage) kann 
     // mit den options für das Panel übergeben werden 
     // z.B.: <div class="{ type : 'Panel', loadMessage: 'Bitte warten', ...}">...
     this.$element.block(this.loadMessage);
     
     // Inhalt für das Panel laden.
-    this.$element.load(mvc.buildUrl(url), function() {
-      // Controls aufbauen.
+    $.get(app.buildUrl(url), function(html) {
+    	this.$element.html(html);
+    	// Controls aufbauen.
       // INFO: Im neu geladenen HTML können Controls sein, die
       //       initialisiert werden wollen.
-      that.initializeChildControls();
-      that.onReady(function() {
-        that.$element.unblock();
-        // Benachrichtigen.
-        that.fireEvent('finishedLoading');
-      });
-    });
+      var builder = new Base.ControlDOMBuilder(this.$element);
+      this.controls = builder.createControls();
+      this.onReady();
+      this.$element.unblock();
+      // Benachrichtigen.
+      this.fireEvent('finishedLoading');
+    }.bind(this));
   }
 });

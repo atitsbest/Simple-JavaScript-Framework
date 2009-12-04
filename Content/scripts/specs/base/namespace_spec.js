@@ -4,6 +4,8 @@ describe("Base#namespace", {
 		// Alle weiteren Namespaces wieder löschen.
 		delete Level1;
 	},
+
+	/*==================================================================*/
 	
 	'should create a single namespace': function() {
 		Base.namespace('Level1');

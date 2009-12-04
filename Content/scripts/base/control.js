@@ -1,14 +1,6 @@
 ﻿Base.Control = new Class(/** @lends Base.Control# */{
 	/**
 	 * Bietet die Möglichkeit einem DOM-Element ein Verhalten zuzuweisen. 
-	 * <p>
-	 *  Wenn das DOM-Element Kinder hat, dann werden die Kinder gesucht, die eine CSS-Klasse
-	 *  'type' zugewiesen haben z.B.: &lt;div class="{ type : 'Panel' }" /&gt;. Bei diesen Kindern wird versucht
-	 *  aus der CSS-Klasse ein JSON-Objekt zu erstellen. Gelingt das wird der type Wert ausgelesen
-	 *  und es wird versucht eine Instanz von diesem Typ zu erstellen. 
-	 *  Die Kinder werden dann an den Parent gehängt. Auf diese 
-	 *  Weise ensteht ein Control-Baum der dieselbe Hierarchie hat wie die DOM-Elemente.
-	 * </p>
 	 * @class Base.Control
 	 * @constructs
 	 * @param {String|jQuery|Element} element Das Element für das diese Klasse erstellt wird.
@@ -67,48 +59,13 @@
   
   /**
    * Wird aufgerufen nachdem der Control-Baum erstellt wurde.
-   * @param callback Wird aufgerufen, wenn alle Kinder erstellt wurden.
    */
-  onReady: function(/**Function*/callback) {
+  onReady: function() {
     if (this.controls) {
       this.controls.forEach(function(ctrl) { 
         ctrl.onReady(); 
       });
-      if (callback) 
-        callback();
     }
-  },
-  
-  /**
-   * Parst die DOM nach Controls und init. sie.
-   * @param $e=this.$element Ab diesem DOM-Element wird im Baum gesucht.
-   */
-  initializeChildControls: function(/**jQuery*/$e) {
-    var that = this;
-    
-    // Default Parameter.
-    $e = $e || this.$element;
-
-    // Control-Baum erstellen.
-    $e.children().each(function(i, child) {
-      var $child = $(child);
-      
-      if ($child.is('.type')) {
-        // Control erstellen...
-        that._initializeControl($child, function(result) {
-          // ...in die Liste einfügen...
-          that.controls.push(result);     
-          // ...und die eigenen Kinder suchen. 
-          // INFO: Dadurch, dass wir das Control erst zur Collection
-          //       hinzufügen und danach die Kinder init., können die
-          //       Kinder bereits nach den Eltern suchen.
-          result.initializeChildControls();
-        });
-      }
-      else {
-        that.initializeChildControls($child);
-      }
-    });
   },
   
   /**
@@ -224,41 +181,8 @@
     });
     
     return result;
-  },
-
-
-  /**
-   */
-  _initializeControl: function(e, callback) {
-    var $e = $(e);
-
-    // Typ ermitteln.    
-    var type = $e.metadata().type;
-    if (!type) 
-      return;
-    //console.log('Init new {0}...'.format(type));
-          
-    // Optionen ermitteln.
-    var settings = {};
-    $.extend(settings, 
-      $e.metadata(), 
-      $e.metadata({type:"elem",name:"script",single:"scriptdata"}), 
-      {parentControl: this});
-
-    var result = null;
-    // Dependencies auflösen und Instanz erstellen.
-    var entryIndex = Base.Control._factories.indexOf(function(f) { 
-      return f.type.test(type); 
-    });
-    
-    // Instanz erstellen.
-    result = (entryIndex != -1) 
-      ? Base.Control._factories[entryIndex].factory.create($e, settings)
-      : eval('new {t}($e, settings);'.substitute({t: type}));
-      
-    callback(result);
   }
-  
+
 });
 
 /**

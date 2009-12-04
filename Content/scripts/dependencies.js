@@ -36,9 +36,10 @@ var dependencies = [
 	{ name: 'base/namespace' },
 	{ name: 'base/mvc' },
 	{ name: 'base/control' },
+	{ name: 'base/controldombuilder' },
 	{ name: 'base/application' },
 	{ name: 'Base', 
-		requires: ['System','base/namespace','base/mvc','base/control','base/application'],
+		requires: ['System','base/namespace','base/mvc','base/control','base/controldombuilder','base/application'],
 		tagOnly: true },
 	
 	/* Base.Controls */
@@ -52,15 +53,20 @@ var dependencies = [
 	/* Specs.Framework */
 	{ name: 'specs/diff_match_patch'},
 	{ name: 'specs/jsspec' },
+	{ name: 'specs/jack' }, 			/* Mocking Framework */
 	{ name: 'Specs.Framework',
-		requires: ['specs/diff_match_patch','specs/jsspec'],
+		requires: ['specs/diff_match_patch','specs/jsspec','specs/jack'],
 		tagOnly: true },
 
 	/* Specs */
+	{ name: 'specs/base/control_spec'},
+	{ name: 'specs/base/controldombuilder_spec'},
 	{ name: 'specs/base/namespace_spec'},
 	{ name: 'specs/base/controls/panel_spec'},
 	{ name: 'Specs',
-		requires: ['Specs.Framework','specs/base/namespace_spec','specs/base/controls/panel_spec'],
+		requires: ['Specs.Framework',
+							 'specs/base/control_spec','specs/base/controldombuilder_spec','specs/base/namespace_spec',
+							 'specs/base/controls/panel_spec'],
 		tagOnly: true },
 
   /* Intersport.VKLohn */
