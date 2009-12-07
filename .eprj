@@ -6,6 +6,10 @@
         <dict>
             <key>appli</key>
             <string>..\..\..\Ror\bookr\app\controllers\application_controller.rb</string>
+            <key>applic</key>
+            <string>Content\scripts\base\application.js</string>
+            <key>block</key>
+            <string>Content\scripts\system\jquery\jquery.blockIt.js</string>
             <key>blue</key>
             <string>..\..\..\Ror\bookr\spec\blueprints.rb</string>
             <key>bluep</key>
@@ -32,17 +36,25 @@
             <string>Content\scripts\base\control.js</string>
             <key>control.js</key>
             <string>Content\scripts\base\control.js</string>
+            <key>controldom</key>
+            <string>Content\scripts\base\controldombuilder.js</string>
             <key>controljs</key>
             <string>Content\scripts\base\control.js</string>
             <key>controls.js</key>
             <string>Content\scripts\docs\symbols\src\content_scripts_controls_panel.js.html</string>
             <key>createboo</key>
             <string>..\..\..\Ror\bookr\db\migrate\20091103130523_create_bookings.rb</string>
+            <key>dep</key>
+            <string>Content\scripts\dependencies.js</string>
             <key>depe</key>
             <string>Content\scripts\dependencies.js</string>
             <key>depen</key>
             <string>Content\scripts\dependencies.js</string>
             <key>depend</key>
+            <string>Content\scripts\dependencies.js</string>
+            <key>depende</key>
+            <string>Content\scripts\dependencies.js</string>
+            <key>dpen</key>
             <string>Content\scripts\dependencies.js</string>
             <key>env</key>
             <string>..\..\..\Ror\bookr\features\support\env.rb</string>
@@ -50,6 +62,8 @@
             <string>..\..\..\Ror\bookr\config\environment.rb</string>
             <key>environ</key>
             <string>..\..\..\Ror\bookr\config\environment.rb</string>
+            <key>jslint</key>
+            <string>Tools\jslint.js</string>
             <key>messa</key>
             <string>Content\scripts\base\controls\message.js</string>
             <key>message</key>
@@ -62,6 +76,8 @@
             <string>..\..\..\Ror\bookr\features\new_booking.feature</string>
             <key>pane_sp</key>
             <string>Content\scripts\specs\base\controls\panel_spec.js</string>
+            <key>panel</key>
+            <string>Content\scripts\base\controls\panel.js</string>
             <key>panel.js</key>
             <string>Content\scripts\base\controls\panel.js</string>
             <key>paneljs</key>

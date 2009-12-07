@@ -1,11 +1,12 @@
-ï»¿/**
+/*jslint passfail: false, evil: true*/
+/**
  */
 var Application = Control.extend(/** @lends Application# */{
   /**
    * Die Application
    * @class Application
    * @constructs
-   * @param loader KÃ¼mmert sich um das (asynchrone) Laden von benÃ¶tigten .js Dateien {@link dependencies.js}. 
+   * @param loader Kümmert sich um das (asynchrone) Laden von benötigten .js Dateien {@link dependencies.js}. 
    */
   init: function(/**Object*/loader) {
     // Layout Elemente
@@ -34,15 +35,15 @@ var Application = Control.extend(/** @lends Application# */{
     //setInterval(function() { that.$header.hide().show(); }, 2000);
 
     // ------------------------
-    // Layout an FenstergrÃ¶ÃŸe anpassen. 
+    // Layout an Fenstergröße anpassen. 
     this.resizeLayout();
     this.resizeContentContainer();
-    // Wenn das Fenster die GrÃ¶ÃŸe Ã¤ndert, muss das Layout mitziehen.
+    // Wenn das Fenster die Größe ändert, muss das Layout mitziehen.
     this.$window.resize(function() { that.onResize.deliver(); });
     this.resize.bind(this).subscribe(this.onResize);
 
     // Header mit dem Body mitscrollen lassen.
-    // NICHT Ã„NDERN: Code so lassen und nicht mit .attr('onscroll') arbeiten, denn das
+    // NICHT ÄNDERN: Code so lassen und nicht mit .attr('onscroll') arbeiten, denn das
     //               funktioniert nicht.
     if (this.$contentcontainer.length > 0) {
       this.$contentcontainer[0].onscroll = function() {
@@ -64,7 +65,7 @@ var Application = Control.extend(/** @lends Application# */{
     // $('.select').live('click', function() { this.select(); });
 
     // ------------------------
-    // Hilfefenster Ã¶ffnen.
+    // Hilfefenster öffnen.
     $('a.help').click(function() {
       window.open(this.href, this.alt | this.title, 'height:500,width:300,toolbar=no,status=no,menubar=no,location=no');
       return false;
@@ -84,7 +85,7 @@ var Application = Control.extend(/** @lends Application# */{
   },
 
   /**
-   * Die FenstergrÃ¶ÃŸe hat sich geÃ¤ndert.
+   * Die Fenstergröße hat sich geändert.
    */
   resize: function() {
     this.resizeLayout();
@@ -96,8 +97,8 @@ var Application = Control.extend(/** @lends Application# */{
 
 
   /**  
-   * Passt die GrÃ¶ÃŸe des .contentcontainer, an die
-   * GrÃ¶ÃŸe des .contentheaders an.
+   * Passt die Größe des .contentcontainer, an die
+   * Größe des .contentheaders an.
    */
   resizeContentContainer: function() {
     var headerHeight = 0;
@@ -109,17 +110,18 @@ var Application = Control.extend(/** @lends Application# */{
   },
 
   /**
-   * Passt die GrÃ¶ÃŸe von Sidebar und Main an die 
-   * FenstergrÃ¶ÃŸe an.
+   * Passt die Größe von Sidebar und Main an die 
+   * Fenstergröße an.
    */
   resizeLayout: function() {
     // IE: Nach einem Maximize wird nicht autom. die Scrollposition
-    //     des Headers aktualisiert, daher mÃ¼ssen wir das selber
+    //     des Headers aktualisiert, daher müssen wir das selber
     //     machen.
-    //     Wenn man z.B.: in der MVÃœ ganz nach rechts scrollt und dann
-    //     das Fenster maximiert, scrollt der Header (im IE) nicht zurÃ¼ck.
-    if (this.$contentcontainer.length > 0 && this.$contentcontainer[0].onscroll)
+    //     Wenn man z.B.: in der MVÜ ganz nach rechts scrollt und dann
+    //     das Fenster maximiert, scrollt der Header (im IE) nicht zurück.
+    if (this.$contentcontainer.length > 0 && this.$contentcontainer[0].onscroll) {
       this.$contentcontainer[0].onscroll();
+    }
   },
 
   /**
@@ -128,7 +130,7 @@ var Application = Control.extend(/** @lends Application# */{
   setHeaderScrollPosition: function(pos) {
     var $headercontainer = this.$contentheader.find('.headercontainer');
     if ($headercontainer.length > 0) {
-      $headercontainer.scrollLeft(pos)
+      $headercontainer.scrollLeft(pos);
       if ($.browser.msie && $.browser.version <= 7) {
         $headercontainer.hide().show();
       }
@@ -148,7 +150,7 @@ var Application = Control.extend(/** @lends Application# */{
           case 0:
             break;
 
-          // Session-Timeout: Wir senden ein 403 bei einem Sessiontimeout. Eigentlich wÃ¼rde ein 401 besser passen,  
+          // Session-Timeout: Wir senden ein 403 bei einem Sessiontimeout. Eigentlich würde ein 401 besser passen,  
           //                  doch IE/Safari haben sich entschieden bei einem 401 ein Anmeldefenster zu zeigen, was wir  
           //                  nicht wollen; daher die 403 (Forbidden).  
           case 403:
@@ -168,18 +170,18 @@ var Application = Control.extend(/** @lends Application# */{
               var json = eval('('+request.responseText+')');
               message.show(json);
             }
-            // Hier haben wir es mit einem ungewÃ¼nschten Fehler zu tun.
+            // Hier haben wir es mit einem ungewünschten Fehler zu tun.
             else {
               $.blockUI(request.responseTest);
             }
             break;
         }
 
-        // FÃ¼r den Fall, dass es von einer Komponente vergessen wurde.
+        // Für den Fall, dass es von einer Komponente vergessen wurde.
         $.unblockUI();
       });
 
-    //das hide und show wurde wegen eines IE-Bugs hinzugefÃ¼gt
+    //das hide und show wurde wegen eines IE-Bugs hinzugefügt
     var messageResize = function() {
       that.resizeContentContainer();
       that.$contentheader.hide().show();
@@ -208,21 +210,21 @@ var Application = Control.extend(/** @lends Application# */{
   },
 
   /*
-   * Ã„nderungen an der Applikation registrieren
+   * Änderungen an der Applikation registrieren
    */
   registerChange: function() {
     this.changeMark = true;
   },
 
   /**
-   * Anzeiger der Ã„nderungen wieder lÃ¶schen.
+   * Anzeiger der Änderungen wieder löschen.
    */
   clearChange: function() {
     this.changeMark = false;
   },
 
   /**
-   * Hat sich etwas geÃ¤ndert?
+   * Hat sich etwas geändert?
    */
   hasChanged: function() /**Boolean*/ {
     return this.changeMark || false;

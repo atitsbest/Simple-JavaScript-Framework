@@ -1,8 +1,8 @@
-ï»¿/**
+/**
  * Hilfsmethoden um besser mit einem Server umzugehen, der im MVC Pattern 
  * realisiert wurde.
  * @class Base.Mvc
- * @author <a href="mailto:meist@infoniqa.com">Stephan MeiÃŸner</a>
+ * @author <a href="mailto:meist@infoniqa.com">Stephan Meißner</a>
  */
 Base.Mvc = new Class(/** @lends Base.Mvc# */{
 	/** 
@@ -20,10 +20,10 @@ Base.Mvc = new Class(/** @lends Base.Mvc# */{
 	/**
 	 * Erstellt eine Url aus Controlle, Action und Parametern.
 	 * <p>
-	 *  Parameter kÃ¶nnen als auch Funktionen angegeben werden,
+	 *  Parameter können als auch Funktionen angegeben werden,
 	 *  die jedes mal beim Zusammenstellen der Url ausgewertet werden.
-	 *  Auf diese Weise lÃ¤sst sich im Markup eine Url angeben die
-	 *  z.B.: den jeweils ausgewÃ¤hlen Wert eines &lt;select&gt; verwendet.
+	 *  Auf diese Weise lässt sich im Markup eine Url angeben die
+	 *  z.B.: den jeweils ausgewählen Wert eines &lt;select&gt; verwendet.
 	 * </p>
 	 * @param {string}[controller] Name des Controllers
 	 * @param {string}[action] Name der Actions
@@ -46,7 +46,7 @@ Base.Mvc = new Class(/** @lends Base.Mvc# */{
 	buildUrl: function() /**string*/ {    
 	  var args = this.buildUrl.arguments;
 	  
-	  // Wurde ein Hash Ã¼bergeben, oder ein string
+	  // Wurde ein Hash übergeben, oder ein string
 	  if (args.length == 1) {
 	    // Der erste Parameter ist ein Hash mit { controller:, action:, params: }
 	    var url = args[0];
@@ -86,16 +86,16 @@ Base.Mvc = new Class(/** @lends Base.Mvc# */{
 	},
 	
 	/**
-	 * Ruft eine Action (synchron) auf und liefert das Ergebnis als JS-Object zurÃ¼ck (JSON)
+	 * Ruft eine Action (synchron) auf und liefert das Ergebnis als JS-Object zurück (JSON)
 	 * <p><strong>
 	 *  Dieser synchrone Aufruf blockiert den Browser komplett. Darum sollte diese
 	 *  Methode nur sehr vorsichtig eingesetzt werden.
-	 *  Ihr Vorteil liegt einzig und alleine in einem einfacheren Programmablauf fÃ¼r 
+	 *  Ihr Vorteil liegt einzig und alleine in einem einfacheren Programmablauf für 
 	 *  den Programmierer.
 	 * </strong></p>
 	 * @param actionName Name der Action (es wird der aktuelle Controller verwendet).
 	 * @param params Die Parameter.
-	 * @param noinvoke RÃ¼ckgabewert von HTTP-Request wird nicht als JSON ausgewertet.
+	 * @param noinvoke Rückgabewert von HTTP-Request wird nicht als JSON ausgewertet.
 	 */
 	invokeRemote: function(/**string*/actionName, /**hash*/params, /**bool*/noinvoke) /**object*/ {
 	  var url = actionName + this.actionExtension;
@@ -113,11 +113,11 @@ Base.Mvc = new Class(/** @lends Base.Mvc# */{
 	  if (result.status != 200)
 	    throw new Error(result.responseText);
 	  else if (!noinvoke) {
-	    // RÃ¼ckgabewert als JSON  
+	    // Rückgabewert als JSON  
 	    try {
 	      return eval('(' + result.responseText + ')');
 	    }
-	    catch(e) { alert('Beim Verarbeiten des RÃ¼ckgabewerts von Aufruf ' + url + ' ist folgender Fehler aufgetreten: ' + e); }
+	    catch(e) { alert('Beim Verarbeiten des Rückgabewerts von Aufruf ' + url + ' ist folgender Fehler aufgetreten: ' + e); }
 	  }
 	}
 

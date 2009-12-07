@@ -19,8 +19,8 @@ Base.Application = new Class(/**@lends Base.Application#*/{
 	 * Applikation starten.
 	 */
 	run: function() {
-    this.initializeChildControls();
-    this.onReady();
+		this.initializeChildControls();
+		this.onReady();
 	}
 	
 });

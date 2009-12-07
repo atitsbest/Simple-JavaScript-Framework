@@ -1,4 +1,4 @@
-﻿/**@namespace Base.Controls*/
+/**@namespace Base.Controls*/
 Base.namespace('Base.Controls');
 
 Base.Controls.Message = new Class ({/**@lends Base.Controls.Message*/
@@ -11,7 +11,7 @@ Base.Controls.Message = new Class ({/**@lends Base.Controls.Message*/
 	
 	/**
 	 * Wird gerade eine persistente Nachricht angezeigt, also eine Nachricht
-	 * die zwar überblendet werden kann, aber nach dem Ausblenden der anderen
+	 * die zwar �berblendet werden kann, aber nach dem Ausblenden der anderen
 	 * Nachricht wieder sichtbar wird.
 	 * @type Boolean
 	 */
@@ -42,8 +42,9 @@ Base.Controls.Message = new Class ({/**@lends Base.Controls.Message*/
 	_showMessage: function(/**String*/msg, /**String*/type, params) {    
     //wo soll die Nachricht angezeigt werden?
     var $viewElement = this.$element;
-    if(params && params.viewElement)
+    if(params && params.viewElement) {
       $viewElement = $(params.viewElement);
+    }
     
     $viewElement
       .html(msg)
@@ -70,8 +71,9 @@ Base.Controls.Message = new Class ({/**@lends Base.Controls.Message*/
 	clear: function(params) {
     //welche Nachricht soll ausgeblendet werden?
     var $viewElement = this.$element;
-    if(params && params.viewElement)
+    if(params && params.viewElement){
       $viewElement = $(params.viewElement);
+    }
       
     $viewElement
         .hide();

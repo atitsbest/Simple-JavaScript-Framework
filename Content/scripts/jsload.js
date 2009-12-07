@@ -1,4 +1,4 @@
-ï»¿/**
+/**
  * JSLoad
  * Copyright (C) 2007-2008 Instructables
  *
@@ -24,13 +24,13 @@
  */
  
  /*
-  * Ã„nderung durch EinbÃ¶ck Anita:
+  * Änderung durch Einböck Anita:
   * 
   * Zeile 36ff.: Benennung der Funktionsparameter
   *
   * Zeile 227: Bei der Angabe einer serverscriptConcatenatorURL wird die URL um den String
-  * "&filePaths=" ergÃ¤nzt, um die korrekte Ãœbergabe der einzelnen Skripts an den von uns
-  * verwendeten JavaScriptController (JavaScriptController.cs) zu gewÃ¤hrleisten.
+  * "&filePaths=" ergänzt, um die korrekte Übergabe der einzelnen Skripts an den von uns
+  * verwendeten JavaScriptController (JavaScriptController.cs) zu gewährleisten.
   */
 
 function JSLoad(opt) { //tags, path, version, executeAfterLoad, scriptConcatenatorURL) {

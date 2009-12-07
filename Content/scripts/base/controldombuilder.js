@@ -1,3 +1,4 @@
+/*jslint evil: true*/
 Base.ControlDOMBuilder = new Class(/**@lends Base.ControlDOMBuilder#*/{
 
 	/**
@@ -54,7 +55,7 @@ Base.ControlDOMBuilder = new Class(/**@lends Base.ControlDOMBuilder#*/{
       
       if ($child.is('.type')) {
         // Control erstellen...
-        var result = that._createControl($child)
+        var result = that._createControl($child);
         // ...in die Liste einfügen...
         that.controls.push(result);     
         // ...und die eigenen Kinder suchen. 
@@ -76,8 +77,9 @@ Base.ControlDOMBuilder = new Class(/**@lends Base.ControlDOMBuilder#*/{
 
     // Typ ermitteln.    
     var type = $e.metadata().type;
-    if (!type) 
+    if (!type) {
       return;
+    }
     //console.log('Init new {type}...'.substitute({type:type}));
           
     // Optionen ermitteln.
@@ -93,9 +95,7 @@ Base.ControlDOMBuilder = new Class(/**@lends Base.ControlDOMBuilder#*/{
     });
     
     // Instanz erstellen.
-    var result = (entryIndex != -1) 
-      ? Base.Control._factories[entryIndex].factory.create($e, settings)
-      : eval('new {t}($e, settings);'.substitute({t: type}));
+    var result = (entryIndex != -1) ? Base.Control._factories[entryIndex].factory.create($e, settings) : eval('new {t}($e, settings);'.substitute({t: type}));
       
     return result;
   }

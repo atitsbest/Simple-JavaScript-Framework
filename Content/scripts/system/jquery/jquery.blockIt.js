@@ -72,13 +72,13 @@
     msg = msg || 'Die Ergebnisse werden geladen...';
 
     // Anzahl der Blocks erhöhen.
-    blockMessages.unshift(msg)
+    blockMessages.unshift(msg);
 
     // Nicht mehrmals blocken.
     if (blockMessages.length == 1) {
       $('body').append('<div class="_blockIt_" style="' + ostyle + '"></div><div class="_blockIt_ _message_" style="' + mstyle + '">' + msg + '</div>');
       // Zentrieren und anzeigen.
-      $('div._blockIt_._message_').center()
+      $('div._blockIt_._message_').center();
     }
     else {
       // Nachricht ändern.
@@ -96,7 +96,7 @@
     var msg = blockMessages.pop();
 
     // Block entfernen.
-    if (blockMessages.length == 0) {
+    if (blockMessages.length === 0) {
       $('body').find('div._blockIt_').remove();
     }
     else {
