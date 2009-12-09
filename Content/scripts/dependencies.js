@@ -8,7 +8,7 @@ var dependencies = [
   { name: 'system/jquery/jquery.blockit' },
   { name: 'system/jquery/jquery.color' },
   { name: 'system/jquery/jquery.form' },
-  { name: 'system/jquery/jquery.dimensions.pack' },
+  { name: 'system/jquery/jquery.dimensions' },
   { name: 'system/jquery/jquery.metadata' },
   { name: 'system/jquery/jquery.blockit' },
   { name: 'system/jquery/jquery.scrollto.min' },
@@ -16,7 +16,7 @@ var dependencies = [
   { name: 'system/jquery/jquery.blockit' },
   { name: 'system/jquery/jquery.color' },
   { name: 'system/jquery/jquery.form' },
-  { name: 'system/jquery/jquery.dimensions.pack' },
+  { name: 'system/jquery/jquery.dimensions' },
   { name: 'system/jquery/jquery.metadata' },
   { name: 'system/jquery/jquery.blockit' },
   { name: 'system/jquery/jquery.scrollto.min' },
@@ -65,13 +65,12 @@ var dependencies = [
 		tagOnly: true },
 	{ name: 'System.jQuery', 
 		requires: [
-			'system/jquery/jquery-1.3.2','system/jquery/jquery.blockit','system/jquery/jquery.color','system/jquery/jquery.form','system/jquery/jquery.dimensions.pack','system/jquery/jquery.metadata','system/jquery/jquery.blockit','system/jquery/jquery.scrollto.min'	
+			'system/jquery/jquery-1.3.2','system/jquery/jquery.blockit','system/jquery/jquery.color','system/jquery/jquery.form','system/jquery/jquery.dimensions','system/jquery/jquery.metadata','system/jquery/jquery.blockit','system/jquery/jquery.scrollto.min'	
 		], 
 		tagOnly: true },
 	{ name: 'Base.Controls', 
 		requires: [
 			'Base','base/controls/message','base/controls/panel','base/controls/tree'	
 		], 
-		tagOnly: true },
-	{}
+		tagOnly: true }
 ];
