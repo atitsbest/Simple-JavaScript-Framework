@@ -1,4 +1,4 @@
-__DEBUG__ = true;
+__DEBUG__ = false;
 var app = null;
 
 function startApp() {

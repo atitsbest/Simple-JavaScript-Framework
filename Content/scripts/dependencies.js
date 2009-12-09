@@ -10,15 +10,6 @@ var dependencies = [
   { name: 'system/jquery/jquery.form' },
   { name: 'system/jquery/jquery.dimensions' },
   { name: 'system/jquery/jquery.metadata' },
-  { name: 'system/jquery/jquery.blockit' },
-  { name: 'system/jquery/jquery.scrollto.min' },
-  { name: 'system/jquery/jquery-1.3.2' },
-  { name: 'system/jquery/jquery.blockit' },
-  { name: 'system/jquery/jquery.color' },
-  { name: 'system/jquery/jquery.form' },
-  { name: 'system/jquery/jquery.dimensions' },
-  { name: 'system/jquery/jquery.metadata' },
-  { name: 'system/jquery/jquery.blockit' },
   { name: 'system/jquery/jquery.scrollto.min' },
   { name: 'system/mootools/mootools-1.2.4-core-custom' },
   { name: 'system/mootools/mootools-1.2.4-core' },
@@ -31,7 +22,6 @@ var dependencies = [
   { name: 'base/application' },
   { name: 'base/controls/message' },
   { name: 'base/controls/panel' },
-  { name: 'base/controls/tree' },
   { name: 'intersport/vklohn/application' },
 	{ name: 'Specs.Framework', 
 		requires: [
@@ -70,7 +60,7 @@ var dependencies = [
 		tagOnly: true },
 	{ name: 'Base.Controls', 
 		requires: [
-			'Base','base/controls/message','base/controls/panel','base/controls/tree'	
+			'Base','base/controls/message','base/controls/panel'	
 		], 
 		tagOnly: true }
 ];

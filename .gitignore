@@ -1,6 +1,9 @@
+*.jar
 .eprj
 *.scc
 *.log
 *.tmp
 @install
 Tools
+content/scripts/compiled.js
+

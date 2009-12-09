@@ -55,8 +55,7 @@
 	  "Base.Controls": {
         "files": [
             "base/controls/message",
-            "base/controls/panel", 
-            "base/controls/tree"
+            "base/controls/panel"
         ],
         "requires": ["Base"]
     },

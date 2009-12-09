@@ -19,7 +19,8 @@ Base.Application = new Class(/**@lends Base.Application#*/{
 	 * Applikation starten.
 	 */
 	run: function() {
-		this.initializeChildControls();
+		var builder = new Base.ControlDOMBuilder(this.$element);
+		this.controls = builder.createControls();
 		this.onReady();
 	}
 	

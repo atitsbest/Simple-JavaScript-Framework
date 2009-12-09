@@ -63,11 +63,11 @@ module JavaScript
 		# Rekursive Methode um Abhängikeiten aufzulösen.
 		def get_file_names_for_tag_rec(tag, names, &block)
 			# Gibt es den gewünschten Tag?
-			return names unless @tags[tag]
+			return [] unless @tags[tag]
 		
 			# Anhängigkeiten auflösen.
 			if requires = @tags[tag]["requires"]
-				requires.each {|r| names += get_file_names_for_tag_rec(r, names, &block) }
+				requires.each {|r| names = get_file_names_for_tag_rec(r, names, &block) + names }
 			end
 			
 			# Dateien hinzufügen.
@@ -77,7 +77,7 @@ module JavaScript
 				end
 			end
 			
-			names	
+			names.uniq	
 		end
 	
 	end
