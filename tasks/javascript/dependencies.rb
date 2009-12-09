@@ -41,10 +41,21 @@ module JavaScript
 
 		# Ermittelt die Liste der Dateien aus der dependencies.js.
 		# @param tag {String} Dieser Tag soll mit allen Abhängigkeiten geladen werden.
-		# @param block Bietet die Möglichkeit einezelne Einträge zuvor auszuschließen.
+		# @param block Bietet die Möglichkeit einzelne Einträge zuvor auszuschließen.
 		# @returns {String[]} Ein Stringarray mit allen Dateien zum angegebenen Tag.
 		def get_file_names_for_tag(tag, &block)
 			get_file_names_for_tag_rec(tag, [], &block)
+		end
+		
+		# Liefert alle registrierten Dateinamen.
+		# @param block Bietet die Möglichkeit einzelne Einträge zuvor auszuschließen.
+		# @returns {String[]} Ein Stringarray mit allen Dateien.
+		def get_all_file_names(&block)
+			result = []
+			@tags.each_key do |key|
+				result += get_file_names_for_tag(key, &block)
+			end
+			return result.uniq
 		end
 		
 	private

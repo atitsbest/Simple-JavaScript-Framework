@@ -4,6 +4,9 @@
  *					und dann mit rake javascript:dependencies diese Datei erstellen.
  */
 var dependencies = [
+  { name: 'specs/diff_match_patch' },
+  { name: 'specs/jsspec' },
+  { name: 'specs/jack' },
   { name: 'system/jquery/jquery-1.3.2' },
   { name: 'system/jquery/jquery.blockit' },
   { name: 'system/jquery/jquery.color' },
@@ -23,6 +26,10 @@ var dependencies = [
   { name: 'base/controls/message' },
   { name: 'base/controls/panel' },
   { name: 'intersport/vklohn/application' },
+  { name: 'specs/base/control_spec' },
+  { name: 'specs/base/controldombuilder_spec' },
+  { name: 'specs/base/namespace_spec' },
+  { name: 'specs/base/controls/panel_spec' },
 	{ name: 'Specs.Framework', 
 		requires: [
 			'specs/diff_match_patch','specs/jsspec','specs/jack'	

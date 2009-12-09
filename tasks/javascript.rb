@@ -21,7 +21,7 @@ namespace :js do
 	
 	desc "Erstellt aus den Abhaengigkeiten im JSON-Format die dependencies.js"
 	task :dependencies do
-		files = @dependencies.get_file_names_for_tag('Intersport.VKLohn')
+		files = @dependencies.get_all_file_names
 		template = File.read(File.join(File.dirname(__FILE__), 'javascript', 'dependencies.erubis'))
 		eruby = Erubis::Eruby.new(template)
 		
