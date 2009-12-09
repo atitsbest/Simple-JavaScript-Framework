@@ -5,7 +5,7 @@
             "system/jquery/jquery.blockit", 
             "system/jquery/jquery.color", 
             "system/jquery/jquery.form", 
-            "system/jquery/jquery.dimensions.pack", 
+            "system/jquery/jquery.dimensions", 
             "system/jquery/jquery.metadata", 
             "system/jquery/jquery.blockit", 
             "system/jquery/jquery.scrollto.min" 
