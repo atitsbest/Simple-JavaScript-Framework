@@ -1,0 +1,19 @@
+/**
+ * ACHTUNG: Die Datei wurde automatisch durch rake javascript:dependencies erstellt.
+ * 				  Änderungen an den JavaScript Anhängigkeiten an dependencies.json durchführen
+ *					und dann mit rake javascript:dependencies diese Datei erstellen.
+ */
+var dependencies = [
+<% for file in files %>
+  { name: '<%= file %>' },
+<% end %>
+<% tags.each do |key,value| %>
+	{ name: '<%= key %>', 
+		requires: [
+			<% requires = (value["requires"] or []) + (value["files"] or []) %>
+			<%= requires.map{|x|"'#{x}'"}.join(',') %>	
+		], 
+		tagOnly: true },
+<% end %>
+	{}
+];

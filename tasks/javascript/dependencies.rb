@@ -8,10 +8,13 @@ module JavaScript
 		# (Relativer) Pfad zu den JavaScript ausgehend von den Dateinamen
 		# in der dependencies.js
 		attr_accessor :javascript_path
+		
+		# Die Abhängikeiten
+		attr_reader :tags
 
 		# CTR
 		# @param file {String} Dateiname der dependencies.js relativ zu javascript_path
-		def initialize(file="dependencies_json.js")
+		def initialize(file="dependencies.json")
 			self.javascript_path = "content/scripts"
 			load(File.join(javascript_path, file))			
 		end
@@ -20,8 +23,9 @@ module JavaScript
 		# @param filenames {String[]} Stringarray mit den Dateinamen.
 		def lint(filenames)
 			filenames.each do |f|
-				print "#{f}: "
-				system("cscript tools/jslint.js <#{f} //Nologo //B")
+				file_name = File.join(javascript_path,"#{f}.js")
+				print "#{file_name}: "
+				system("cscript tools/jslint.js <#{file_name} //Nologo //B")
 				puts ""
 			end
 		end
@@ -49,28 +53,27 @@ module JavaScript
 		# @param file {String} Der Name der Json-Datei mit den Abhängigkeiten. 
 		# @returns {Hash} Den Json-String geparst als Hash.
 		def load(file)
-			src = ""
 			# dependencies.js einlesen.
-			File.foreach(file) {|l| src+=l}
+			src = File.read(file)
 			
 			# JSON parsen
-			@dependencies = JSON.parse(src)
+			@tags = JSON.parse(src)
 		end	
 
 		# Rekursive Methode um Abhängikeiten aufzulösen.
 		def get_file_names_for_tag_rec(tag, names, &block)
 			# Gibt es den gewünschten Tag?
-			return names unless @dependencies[tag]
+			return names unless @tags[tag]
 		
 			# Anhängigkeiten auflösen.
-			if requires = @dependencies[tag]["requires"]
+			if requires = @tags[tag]["requires"]
 				requires.each {|r| names += get_file_names_for_tag_rec(r, names, &block) }
 			end
 			
 			# Dateien hinzufügen.
-			if (block_given? and yield(@dependencies[tag]))
-				if @dependencies[tag]["files"]
-					names += @dependencies[tag]["files"].map{|f| File.join(javascript_path,"#{f}.js")}
+			if (!block_given? or yield(@tags[tag]))
+				if @tags[tag]["files"]
+					names += @tags[tag]["files"]
 				end
 			end
 			
