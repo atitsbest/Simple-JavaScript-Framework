@@ -7,13 +7,13 @@ var dependencies = [
 <% for file in files %>
   { name: '<%= file %>' },
 <% end %>
-<% tags.each do |key,value| %>
+<% tags.keys.each do |key| %>
+	<% value = tags[key] %>
 	{ name: '<%= key %>', 
 		requires: [
 			<% requires = (value["requires"] or []) + (value["files"] or []) %>
 			<%= requires.map{|x|"'#{x}'"}.join(',') %>	
 		], 
-		tagOnly: true },
+		tagOnly: true }<%= key == tags.keys.last ? '' : ',' %>
 <% end %>
-	{}
 ];
