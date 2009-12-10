@@ -22,7 +22,7 @@ namespace :css do
 		else
 			# Sprite erzeugen
 			puts "Bilder suchen in #{sprites_dir}..."
-			sprite = SpriteCollection.new(File.join(images_dir, 'sprites.png'), File.join(css_dir, 'sprites.css'))
+			sprite = SpriteCollection.new(File.join(IMAGES_PATH, 'sprites.png'), File.join(css_dir, 'sprites.css'))
 			
 			image_names.each do |filename|
 			  puts filename
