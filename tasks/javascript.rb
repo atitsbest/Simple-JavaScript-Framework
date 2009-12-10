@@ -3,6 +3,9 @@ require(File.join(File.dirname(__FILE__), 'javascript', 'dependencies.rb'))
 
 namespace :js do
 	
+	# Dateiname (ohne Pfad) der kompilierten CSS Datei.
+	COMPILED_JS_NAME = "#{APPLICATION_NAME}.js"
+
 	# Abhängigkeiten laden.
 	@dependencies = JavaScript::Dependencies.new('dependencies.json')
 
@@ -38,7 +41,7 @@ namespace :js do
 	
 	desc "Kompilert die JavaScripts mit Google closue Compiler."
 	task :compile do
-		closure_path = "tools/closure/compiler.jar"
+		closure_path = File.join(TOOLS_PATH, "closure/compiler.jar")
 		compilation_level = "WHITESPACE_ONLY" # ADVANCED_OPTIMIZATIONS, SIMPLE_OPTIMIZATIONS, WHITESPACE_ONLY
 
 		# Dateien ermitteln und auf einen absolute Pfad bringen.
@@ -47,7 +50,7 @@ namespace :js do
 		files = files.map {|f| File.join(@dependencies.javascript_path, "#{f}.js")}
 
 		# Wohin?
-		target = File.join(@dependencies.javascript_path, 'compiled.js')
+		target = File.join(@dependencies.javascript_path, COMPILED_JS_NAME)
 
 		# Kompilieren.
 		`java -jar #{closure_path} --compilation_level #{compilation_level} --js #{files.join(" --js ")} --js_output_file #{target}`
