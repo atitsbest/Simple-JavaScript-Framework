@@ -1,0 +1,10 @@
+---
+application name: Intersport.VKLohn
+
+shared paths:
+  tools    : tools/
+  css      : content/css/ 
+  images   : content/images/ 
+  js       : content/scripts/ 
+  
+

@@ -1,9 +1,14 @@
 # Neue Tasks in das Verzeichnis Tools/Tasks einfügen.
-APPLICATION_NAME = "intersport.vklohn"
 
-TOOLS_PATH = "tools/"
-CSS_PATH = "content/css/"
-IMAGES_PATH = "content/images/"
-SCRIPTS_PATH = "content/scripts"
+# Konfiguration lesen
+config = open('rake.yml') {|f| YAML::load(f)}
 
+# Constants:
+APPLICATION_NAME 	= config["application name"]
+TOOLS_PATH 				= config["shared paths"]["tools"]
+CSS_PATH 					= config["shared paths"]["css"]
+IMAGES_PATH 			= config["shared paths"]["images"]
+SCRIPTS_PATH 			= config["shared paths"]["js"]
+
+# Tasks einfügen.
 Dir['tasks/*.rb'].each {|file| require file}
