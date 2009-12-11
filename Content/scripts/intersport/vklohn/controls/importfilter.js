@@ -1,20 +1,18 @@
-ï»¿/**
- * @namespace Intersport.VKLOHN
- */
-if (Object.isUndefined(Intersport) || !Intersport) { var Intersport = {}; }
-if (Object.isUndefined(Intersport.VKLOHN) || !Intersport.VKLOHN) { Intersport.VKLOHN = {}; }
+/**@namespace Intersport.VKLohn.Controls*/
+Base.namespace('Intersport.VKLohn.Controls');
 
-/**
- * Der Importfilter.
- * @class
- */
-Intersport.VKLOHN.ImportFilter = Control.extend({
+Intersport.VKLohn.Controls.ImportFilter = new Class(/**@lends Intersport.VKLohn.Controls.ImportFilter# */{
+
+  /**@ignore*/
+  Extends: Base.Control,
 
   /**
-   * CTR
+   * Der Importfilter.
+   * @class Intersport.VKLohn.Controls
+   * @extends Base.Control
    */
-  init: function(element, options) {
-    this._super(element, options);
+  initialize: function(element, options) {
+    this.parent(element, options);
 
     // Elements
     this.$form = this.$element.find('form:first');
@@ -36,20 +34,20 @@ Intersport.VKLOHN.ImportFilter = Control.extend({
       success: this.onFormSubmitted.bind(this),
       dataType: 'json'});
 
-    this._super();
+    this.parent();
   },
 
   /**
    * Wird aufgerufen, wenn der Filter gesetzt werden soll.
-   * @param msg EnthÃ¤lt die Antwort vom Server ({type, message}).
+   * @param msg Enthält die Antwort vom Server ({type, message}).
    */
   onFormSubmitted: function(msg) {
     this.reloadDependencies();
-    message.show(msg);
+    app.message.show(msg);
   },
 
   /**
-   * Wird aufgerufen, wenn der Filter wieder gelÃ¶scht werden soll.
+   * Wird aufgerufen, wenn der Filter wieder gelöscht werden soll.
    */
   clearFilter: function(e) {
     var that = this;
@@ -59,24 +57,24 @@ Intersport.VKLOHN.ImportFilter = Control.extend({
       url: e.target.href,
       dataType: 'json',
       success: function(msg) {
-        // Form lÃ¶schen.
+        // Form löschen.
         that.$codeInputs.val('');
         that.$companyNumberInput.val('0');
 
         that.reloadDependencies();
 
-        message.show(msg);
+        app.message.show(msg);
       }
     });
   },
 
   /**
-   * KÃ¼mmert sich um alles, was von dem Filter abhÃ¤ngt und eventuell neu geladen werden soll
+   * Kümmert sich um alles, was von dem Filter abhängt und eventuell neu geladen werden soll
    */
   reloadDependencies: function() {
     //eventuell das Panel der importierten Daten neu laden
     var $dataToReload = app.findControl('ImportData');
-    if ($dataToReload) $dataToReload.load();
+    if ($dataToReload) {$dataToReload.load();}
   }
 
 });

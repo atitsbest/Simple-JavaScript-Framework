@@ -79,11 +79,24 @@
 				"requires": ["Specs.Framework"]
     },
 
-	  "Intersport.VKLohn": {
+	"Intersport.VKLohn": {
         "files": [
-            "intersport/vklohn/application"
+            "intersport/vklohn/appl",
+            "intersport/vklohn/controls/importfilter",
+            "intersport/vklohn/controllers/importcontroller"
         ],
-				"requires": ["Base.Controls"]
+		"requires": ["Intersport.Controls"]
+    },
+    
+    "Intersport.Controls": {
+        "files": [
+            "intersport/controls/header",
+            "intersport/controls/headermenu",
+            "intersport/controls/navigation",
+            "intersport/controls/sidebar/base",
+            "intersport/controls/sidebar/widget"
+        ],
+        "requires" : ["Base.Controls"] 
     }
 
 }

@@ -1,8 +1,15 @@
+/**@namespace Intersport.Controls*/
+Base.namespace('Intersport.Controls');
+
 /**
  * Funktionalität für den Header.
- * @class Header
+ * @class Intersport.Controls.Header
+ * @extends Base.Control
  */
-var Header = Control.extend(/** @lends Header# */{
+Intersport.Controls.Header = new Class(/** @lends Intersport.Controls.Header# */{
+
+  /**@ignore*/
+  Extends: Base.Control,
 
   /**
    * Sortiment anzeigen

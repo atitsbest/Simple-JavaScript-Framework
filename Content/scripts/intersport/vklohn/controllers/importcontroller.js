@@ -1,32 +1,32 @@
-if (Object.isUndefined(Intersport) || !Intersport) {  var Intersport = {}; }
-if (Object.isUndefined(Intersport.VKLOHN) || !Intersport.VKLOHN) { Intersport.VKLOHN = {}; }
+/**@namespace Intersport.VKLohn.Controllers*/
+Base.namespace('Intersport.VKLohn.Controllers');
 
-Intersport.VKLOHN.ImportController = Control.extend(/** @lends Intersport.VKLOHN.ImportController# */{
+Intersport.VKLohn.Controllers.ImportController = new Class(/**@lends Intersport.VKLohn.Controllers.ImportController#*/{
+
+  /**@ignore*/
+  Extends: Base.Control,
+
   /**
    * Import Controller
-   * @class Intersport.VKLOHN.ImportController
-   * @augments Control
+   * @class Intersport.VKLohn.Controllers.ImportController
+   * @extends Control
    * @constructs
    */
-  init: function(element, options) {
-    var that = this;
-    this._super(element, options);
+  initialize: function(element, options) {
+    this.parent(element, options);
   },  
 
   /**
    * Controlbaum ist aufgebaut.
-   * @param callback Wird aufgerufen, wenn onReady fertig ist.
    */
-  onReady: function (callback) {
-    var that = this;
-
+  onReady: function() {
     // Controls
     var sidebar = app.findControl('sidebar');
 
     // Sidebar öffnen.
     sidebar.open();
     
-    this._super(callback);
+    this.parent();
   }
 
 });

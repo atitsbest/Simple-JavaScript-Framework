@@ -1,21 +1,26 @@
-/**
-  @namespace Sidebar
- */
-if (Object.isUndefined(Sidebar) || !Sidebar) {
-    var Sidebar = {};
-}
+/*jslint laxbreak: true*/
+/**@namespace Intersport.Controls*/
+Base.namespace('Intersport.Controls.Sidebar');
 
 /**
  */
-Sidebar.Widget = Control.extend(/** @lends Sidebar.Widget# */{
+Intersport.Controls.Sidebar.Widget = new Class(/** @lends Intersport.Controls.Sidebar.Widget# */{
+
+  /**@ignore*/
+  Extends: Base.Control,
+  
+  /**@ignore*/
+  Implements: Events,
 
   /**
    * Ein einzelner Eintrag in der Sidebar.
-   * @class Sidebar.Widget
+   * @class Intersport.Controls.Sidebar.Widget
+   * @extends Base.Control
+   * @extends Events
    * @constructs
    */
-  init: function(element, options) {
-    this._super(element, options);
+  initialize: function(element, options) {
+    this.parent(element, options);
     
     this.$element = $(element);
     
@@ -24,11 +29,6 @@ Sidebar.Widget = Control.extend(/** @lends Sidebar.Widget# */{
     this.$body = this.$element.find('.body:first');
     this.$openedImage = this.$head.find('.opened');
     this.$closedImage = this.$head.find('.closed');
-    
-    // Publishers:
-    this.onBeforeOpen = new Publisher();
-    this.onIsToggled = new Publisher();
-    this.onFinisedOpening = new Publisher();
   },
   
   /**
@@ -40,7 +40,7 @@ Sidebar.Widget = Control.extend(/** @lends Sidebar.Widget# */{
     // Widget öffnen/schließen.
     this.$head.click(function() { that.toggle(); });  
 
-    this._super();
+    this.parent();
   },
 
 
@@ -48,9 +48,8 @@ Sidebar.Widget = Control.extend(/** @lends Sidebar.Widget# */{
    * Öffnen oder schließen.
    */
   toggle: function() {
-    this.isOpen()
-      ? this.close()
-      : this.open();
+    if (this.isOpen()) {this.close();}
+    else {this.open();}
   },  
 
   /**
@@ -58,18 +57,19 @@ Sidebar.Widget = Control.extend(/** @lends Sidebar.Widget# */{
    */
   open: function() {
     // Ist bereits offen.
-    if (this.isOpen())
+    if (this.isOpen()) {
       return;
+    }
 
     var that = this;
     
-    this.onBeforeOpen.deliver();
+    this.fireEvent('beforeOpen');
     // Statusbilder wechseln:
     this.$openedImage.removeClass('hide');
     this.$closedImage.addClass('hide');
     // Öffnen.
     this.$body.slideDown('normal', function() {
-      that.onFinisedOpening.deliver();
+      that.fireEvent('finisedOpening');
     });
   },
 
@@ -98,10 +98,12 @@ Sidebar.Widget = Control.extend(/** @lends Sidebar.Widget# */{
    * Höhe des gesamten Widgets setzen.
    */
   bodyHeight: function(value) /**Integer*/ {
-    if (value)
+    if (value) {
       this.$body.height(value);
-    else
+    }
+    else {
       return this.$body.outerHeight();
+    }
   },
 
   /**

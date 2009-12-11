@@ -1,15 +1,24 @@
-ï»¿/**
- */
-var Navigation = Control.extend(/** @lends Navigation# */{
+/*jslint laxbreak: true*/
+/**@namespace Intersport.Controls*/
+Base.namespace('Intersport.Controls');
+
+Intersport.Controls.Navigation = new Class(/** @lends Intersport.Controls.Navigation# */{
+  
+  /**@ignore*/
+  Extends: Base.Control,
+  
+  /**@ignore*/
+  Implements: Events,
 
   /**
-   * FunktionalitÃ¤t fÃ¼r den Breadcrumb-Navigator.
-   * @class Navigation
-   * @augments Control
+   * Funktionalität für den Breadcrumb-Navigator.
+   * @class Intersport.Controls.Navigation
+   * @extends Base.Control
+   * @extends Events
    * @constructs
    */
-  init: function(element, options) {
-    this._super(element, options);
+  initialize: function(element, options) {
+    this.parent(element, options);
 
     // Members:
     this.$breadCrumbContainer = this.$element.find('.breadcrumbcontainer');
@@ -19,9 +28,6 @@ var Navigation = Control.extend(/** @lends Navigation# */{
     this.$breadCrumbScrollHandle = 0;
     this.initialState = {};
     this._scrollHandle = 0;
-    
-    // Publisher:
-    this._createPublishersForBreadcrumbClicks();
     
     var that = this;
     
@@ -51,9 +57,9 @@ var Navigation = Control.extend(/** @lends Navigation# */{
     this._createAndInjectScrollAreas();
     
     // Publisher subscribe:
-    this.onResize.bind(this).subscribe(app.onResize);
+    app.addEvent('resize', this.onResize.bind(this));
     
-    this._super();
+    this.parent();
   },
   
   /**
@@ -64,23 +70,22 @@ var Navigation = Control.extend(/** @lends Navigation# */{
   onClick: function(/**String*/breadCrumbId, /**String*/targetUrl) {
     //nur reagieren, wenn der Breadcrumb aktiviert ist
     if(!this.$breadCrumbs.filter('.' + breadCrumbId).hasClass('disabled')) {
-      var publisher = this[this._createPublisherName(breadCrumbId)];
-      publisher.deliver(targetUrl);
-      // Falls es fÃ¼r diesen Publisher Subscribers gibt, sollen die sich um die weitere Verlinkung kÃ¼mmern
-      if(publisher.subscribers.length > 0)
-        return false;          
+      this.fireEvent(breadCrumbId, targetUrl);
+      // Falls es für diesen Publisher Subscribers gibt, sollen die sich um die weitere Verlinkung kümmern
+//      if(publisher.subscribers.length > 0)
+//        return false;          
     }
   },
   
   /**
-   * Die GrÃ¶ÃŸe hat sich geÃ¤ndert.
+   * Die Größe hat sich geändert.
    */
    onResize: function() {
     var that = this;
     
     this._updateBreadCrumbListWidth();
     this._updateScrollAreaVisibility();
-    // FÃ¼r den IE7
+    // Für den IE7
     if ($.browser.msie) {
       setTimeout(function() { that.$breadCrumbContainer.hide().show(); }, 1);
     }
@@ -98,12 +103,12 @@ var Navigation = Control.extend(/** @lends Navigation# */{
       .filter('.active')
         // Und dann setzen wir ihn auch gleich inaktiv.
         .removeClass('active')
-        // Das Pfeil-Bild muss noch geÃ¤ndert werden.
+        // Das Pfeil-Bild muss noch geändert werden.
         .find('span.arrow')
           .attr('class', 'navigator_sprite arrow navigator_inactive_inactive_png')
         .end()
       .prev()
-        // Das Pfeil-Bild vom VorgÃ¤nger muss auch noch geÃ¤ndert werden.
+        // Das Pfeil-Bild vom Vorgänger muss auch noch geändert werden.
         .find('span.arrow')
           .attr('class', 'navigator_sprite arrow navigator_inactive_inactive_png')
         .end()
@@ -111,7 +116,7 @@ var Navigation = Control.extend(/** @lends Navigation# */{
 
     // Neuen Eintrag aktiv setzen.
     this.$breadCrumbs
-      // GewÃ¼nschtes Breadcrumb finden...
+      // Gewünschtes Breadcrumb finden...
       .filter('.' + breadCrumbId)
         // ...und aktiv setzten.
         .addClass('active')
@@ -127,13 +132,13 @@ var Navigation = Control.extend(/** @lends Navigation# */{
   },
   
   /**
-   * Breadcrumb auswÃ¤hlbar machen. 
+   * Breadcrumb auswählbar machen. 
    * @param breadCrumbId
    */
   enable: function(/**String*/breadCrumbId) {
-    // GewÃ¼nschtes Breadcrumb finden...
+    // Gewünschtes Breadcrumb finden...
     var breadCrumb = this.$breadCrumbs.filter('.' + breadCrumbId);
-    // nur wenn der Status geÃ¤ndert werden darf
+    // nur wenn der Status geändert werden darf
     if(!(breadCrumb.is('.immutableDisabled'))) {
       // ...und aktiv setzten.
       breadCrumb.removeClass('disabled');
@@ -142,12 +147,12 @@ var Navigation = Control.extend(/** @lends Navigation# */{
   },
   
   /**
-   * Breadcrumb nicht mehr auswÃ¤hlbar machen. 
+   * Breadcrumb nicht mehr auswählbar machen. 
    * @param breadCrumbId
    */
   disable: function(/**String*/breadCrumbId) {
     this.$breadCrumbs
-      // GewÃ¼nschtes Breadcrumb finden...
+      // Gewünschtes Breadcrumb finden...
       .filter('.' + breadCrumbId)
         // ...und inaktiv setzten.
         .addClass('disabled')
@@ -157,43 +162,42 @@ var Navigation = Control.extend(/** @lends Navigation# */{
   },
   
   /**
-   * Ist der angegebene BreadCrumb aktiv (will heiÃŸen: Vom Benutzer ausgwÃ¤hlt)?
+   * Ist der angegebene BreadCrumb aktiv (will heißen: Vom Benutzer ausgwählt)?
    * @param breadCrumbId
    */
   isEnabled: function(/**String*/breadCrumbId) {
     return !this.$breadCrumbs
-      // GewÃ¼nschtes Breadcrumb finden...
+      // Gewünschtes Breadcrumb finden...
       .filter('.' + breadCrumbId)
         // ...und aktiv?
-        .is('.disabled')
+        .is('.disabled');
   },
   
   /**
-   * Setzt den Breadcrumb auf den Start-Status zurÃ¼ck.
+   * Setzt den Breadcrumb auf den Start-Status zurück.
    * @param breadCrumbId
    */
   resetToInitialState: function(/**String*/breadCrumbId) {
     if (breadCrumbId in this.initialState) {
-      this.initialState[breadCrumbId]
-        ? this.enable(breadCrumbId)
-        : this.disable(breadCrumbId);
+      if (this.initialState[breadCrumbId]) {this.enable(breadCrumbId);} 
+      else {this.disable(breadCrumbId);}
     }
   },
   
   /**
-   * Darf der Benutzer auf die BestellÃ¼bersicht wechseln?
+   * Darf der Benutzer auf die Bestellübersicht wechseln?
    */
   updateOrderviewBreadcrumb: function() {
     var that = this;
     
     $.getJSON(mvc.buildUrl({controller:'orderview',action:'isBasketEmpty'}), function(isEmpty) {
       // Wenn der Warenkorb leer ist, darf der Benutzer nicht auf die
-      // BestellÃ¼bersicht wechseln.
-      isEmpty 
-        ? that.disable('orderview')
-        : that.enable('orderview');      
-      // Wenn sich etwas auf dem Server geÃ¤ndert hat, muss sich
-      // auch der init.Status Ã¤ndern, weil der ja eigentlich
+      // Bestellübersicht wechseln.
+      if (isEmpty) {that.disable('orderview');}
+      else {that.enable('orderview');}
+      
+      // Wenn sich etwas auf dem Server geändert hat, muss sich
+      // auch der init.Status ändern, weil der ja eigentlich
       // den Server-Status wiederspiegelt.
       that.initialState.orderview = !isEmpty;
     });
@@ -207,16 +211,15 @@ var Navigation = Control.extend(/** @lends Navigation# */{
     
     $.getJSON(mvc.buildUrl({controller:'orderdetails',action:'orderCount'}), function(orderCount) {
       // Wenn der Warenkorb leer ist, darf der Benutzer nicht auf die
-      // BestellÃ¼bersicht wechseln.
-      orderCount > 0
-      ? that.enable('orderlist')
-      : that.disable('orderlist');        
+      // Bestellübersicht wechseln.
+      if (orderCount > 0) {that.enable('orderlist');}
+      else {that.disable('orderlist');}
     });
   },
 
   /**
    * Die Navigation registriert sich bei allen wichtigen Controllern 
-   * um Ã¼ber Ã„nderungen im Bilder zu bleiben.
+   * um über Änderungen im Bilder zu bleiben.
    */
   _subscribeToControllers: function() {
     // Controllers:
@@ -244,28 +247,9 @@ var Navigation = Control.extend(/** @lends Navigation# */{
   },
 
   /**
-   * Dynamische Erstellung der Publisher fÃ¼r Breadcrumbs.
-   */
-  _createPublishersForBreadcrumbClicks: function() {
-    var that = this;
-    //fÃ¼r jeden Breadcrumb einen Publisher hinzufÃ¼gen
-    this.$breadCrumbs.each(function(i, element) {
-      that[that._createPublisherName($(element).metadata().id)] = new Publisher();
-    });    
-  },
-  
-  /**
-   * Erstellt einen Namen fÃ¼r Breadcrumb-Publisher
-   * @param breadCrumbId
-   */
-  _createPublisherName: function(/**String*/breadCrumbId) {
-    return "on" + breadCrumbId.normalize().capitalize() + "Clicked";
-  },
-  
-  /**
    * Berechnet die Breite die alle Breadcrumbs zusammen ergeben und setzt die
    * Breite des BreadcrumbContainer auf diese Breite.
-   * Das brauchen wir fÃ¼r's Scrollen der Navigation.
+   * Das brauchen wir für's Scrollen der Navigation.
    */
   _updateBreadCrumbListWidth: function() {
     var width = 0;
@@ -277,7 +261,7 @@ var Navigation = Control.extend(/** @lends Navigation# */{
   },
   
   /**
-   * Erstellt die ScrollflÃ¤chen fÃ¼r die linke und die rechte Seite.
+   * Erstellt die Scrollflächen für die linke und die rechte Seite.
    */
   _createAndInjectScrollAreas: function() {
     var that = this;
@@ -296,13 +280,13 @@ var Navigation = Control.extend(/** @lends Navigation# */{
   },
 
   /**
-   * DÃ¼rfen die ScrollflÃ¤chen angezeigt werden?
+   * Dürfen die Scrollflächen angezeigt werden?
    */
   _updateScrollAreaVisibility: function() {
     var scrollPosition = this.$breadCrumbContainer.scrollLeft();
     
     // Ganz links?
-    if (scrollPosition == 0) {
+    if (scrollPosition === 0) {
       this.$scrollAreas.filter('.left').hide();
     }
     else {
@@ -335,7 +319,7 @@ var Navigation = Control.extend(/** @lends Navigation# */{
         that.$breadCrumbContainer.scrollLeft(scrollPosition+(10*factor)).hide().show();
         // UI update.
         that._updateScrollAreaVisibility();
-        // Hat sich nichts mehr geÃ¤ndert => am Ende?
+        // Hat sich nichts mehr geändert => am Ende?
         if (scrollPosition == that.$breadCrumbContainer.scrollLeft()) {
           that._stopBreadCrumbScrolling();
         }

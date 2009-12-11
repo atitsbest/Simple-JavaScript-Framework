@@ -1,14 +1,23 @@
-ï»¿/**
- */
-var Sidebar = Control.extend(/** @lends Sidebar# */{
+/**@namespace Intersport.Controls*/
+Base.namespace('Intersport.Controls.Sidebar');
+
+Intersport.Controls.Sidebar.Base = new Class(/** @lends Intersport.Controls.Sidebar.Base# */{
+
+  /**@ignore*/
+  Extends: Base.Control,
+  
+  /**@ignore*/
+  Implements: Events,
 
   /**
-   * FunktionalitÃ¤t fÃ¼r die Sidebar.
-   * @class Sidebar
+   * Funktionalität für die Sidebar.
+   * @class Intersport.Controls.Sidebar.Base
+   * @extends Base.Control
+   * @extends Events
    * @constructs
    */
-  init: function(element, options) {
-    this._super(element, options);
+  initialize: function(element, options) {
+    this.parent(element, options);
 
     // ----------------------------------------
     // Members
@@ -16,10 +25,6 @@ var Sidebar = Control.extend(/** @lends Sidebar# */{
     this.widgets = [];
     
     this.$changeMarks = this.$element.find('.changeMark');
-
-    // Publisher
-    this.onWidgetOpened = new Publisher();
-    this.onWidgetResized = new Publisher();
   },
 
   /**
@@ -30,48 +35,45 @@ var Sidebar = Control.extend(/** @lends Sidebar# */{
 
     // Widgets ermitteln.
     this.controls.forEach(function(control) {
-      if (control instanceof Sidebar.Widget) {
+      if (control instanceof Intersport.Controls.Sidebar.Widget) {
         that.widgets.push(control);
-        // Wenn ein Widget geÃ¶ffnet wird, dann soll es die ganze
-        // HÃ¶he des Widgetcontainers ausnutzen => wir setzten die 
-        // neue HÃ¶he bevor das Widget sich Ã¶ffnet.
-        (function() { that._prepareToOpenWidget(control); }).subscribe(control.onBeforeOpen);
-        (function() { that.onWidgetOpened.deliver(); }).subscribe(control.onFinisedOpening);
+        // Wenn ein Widget geöffnet wird, dann soll es die ganze
+        // Höhe des Widgetcontainers ausnutzen => wir setzten die 
+        // neue Höhe bevor das Widget sich öffnet.
+        control.addEvent('beforeOpen', that._prepareToOpenWidget(control).bind(that));
+        control.addEvent('finisedOpening', that.fireEvent('widgetOpened'));
       }
     });
     
     // Register: Sidebar ausblenden.
     this.$element.find('.close').click(function() { that.close(); return false; });
-    $('#open_sidebar').click(function() { 
-      that.open(); 
-      return false;
-    });
+    $('#open_sidebar').click(function() { that.open(); return false; });
     
-    // FunktionalitÃ¤t zum einblenden der Sidebar NICHT anzeigen.
-    if (this.widgets.length == 0) {
+    // Funktionalität zum einblenden der Sidebar NICHT anzeigen.
+    if (this.widgets.length === 0) {
       that.$element.find('.open').hide();
     }
 
-    // Publisher subscribe:
-    this.onResize.bind(this).subscribe(app.onResize);
+    // Wir müssen wissen, wenn sich die Größe des Fensters geändert hat.
+    app.addEvent('resize', this.onResize.bind(this));
     
-    this._super();
+    this.parent();
   },
   
   /**
-   * Die GrÃ¶ÃŸe des Fensters hat sich geÃ¤ndert.
+   * Die Größe des Fensters hat sich geändert.
    */
   onResize: function() {
     var that = this;
 
-    // HÃ¶he des angezeigten Widgets anpassen.
+    // Höhe des angezeigten Widgets anpassen.
     if (this.isOpened) {
       this.widgets.forEach(function(widget) {
         if (widget.isOpen()) {
           that._resizeWidgetToFullHeight(widget);
         }
       });
-      this.onWidgetResized.deliver();
+      this.fireEvent('widgetResized');
     }
   },
   
@@ -83,14 +85,14 @@ var Sidebar = Control.extend(/** @lends Sidebar# */{
     app.$main.css('left', '25px');
 
     $('#open_sidebar').show();
-    app.onResize.deliver();
+    app.fireEvent('resize');
   },
   
   /**
    * Sidebar anzeigen
    */
   open: function() {
-    // Bild zum Ã–ffnen der Sidebar aus der DOM entfernen.
+    // Bild zum Öffnen der Sidebar aus der DOM entfernen.
     $('#open_sidebar').hide();
 
     app.$main.css('left', '260px');
@@ -98,11 +100,11 @@ var Sidebar = Control.extend(/** @lends Sidebar# */{
     // Anzeigen.
     this.$element.show().children().show();
 
-    app.onResize.deliver();
+    app.fireEvent('resize');
   },
   
   /**
-   * Ist die Sidebar geÃ¶ffnet
+   * Ist die Sidebar geöffnet
    */
   isOpened: function() {
     return this.$element.is(':visible');
@@ -110,30 +112,30 @@ var Sidebar = Control.extend(/** @lends Sidebar# */{
 
   
   // ----------------------------------------------
-  // Eine Ã„nderunge in der Sidebar melden.
+  // Eine Änderunge in der Sidebar melden.
   registerChange: function (type) {
     this.$changeMarks.show();
   },
 
   // ----------------------------------------------
-  // Stauts der Ã„nderungen zurÃ¼cksetzten.
+  // Stauts der Änderungen zurücksetzten.
   clearChangeStatus: function() {
     this.$changeMarks.hide();
   },
 
   /**
-   * Widget Ã¶ffnen vorbereiten.
+   * Widget öffnen vorbereiten.
    */
   _prepareToOpenWidget: function(widget) {
-    // Offenes Widget schlieÃŸen.
+    // Offenes Widget schließen.
     this.widgets.forEach(function(widget) { widget.close(); });
     
-    // Neue HÃ¶he berechnen.
+    // Neue Höhe berechnen.
     this._resizeWidgetToFullHeight(widget);
   },
 
   /**
-   * WidgetgrÃ¶ÃŸe an den Widgetcontainer anpassen. 
+   * Widgetgröße an den Widgetcontainer anpassen. 
    */
   _resizeWidgetToFullHeight: function(widget) {
     var height = this.$widgetContainer.innerHeight();
