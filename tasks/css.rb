@@ -1,4 +1,5 @@
 require(File.join(File.dirname(__FILE__), 'img2sprite', 'sprite.rb'))
+require(File.join(File.dirname(__FILE__), 'css', 'css_helper.rb'))
 
 namespace :css do
 
@@ -41,26 +42,49 @@ namespace :css do
 		puts "Fertig!"
 	end
 	
-	desc "Stylesheets in eine einzelne Datei komprimieren"
-	task :compile => [:combine] do 
-		yuipath = File.join(TOOLS_PATH, 'yuicompressor/yuicompressor-2.4.2.jar')
-		targetpath = File.join(CSS_PATH, COMPILED_CSS_NAME)
+	desc "Alle Stylesheets jedes Verzeichnisses (inkl. Unterverz.) in einen einzelnen Stylesheet zusammenfassen"
+	task :bundle do 
+		# Alle Top-Level-Verzeichnisse ermitteln.
+		dirs = get_top_level_directories(CSS_PATH) 
 		
-		`java -jar #{yuipath} --line-break 0 #{targetpath} -o #{targetpath}`	
-	end
-	
-	desc "Alle Stylesheets in einen einzelnen Stylesheet zusammenfassen"
-	task :combine do 
-		# Alle Stylesheets ermitteln (combined.ccs und compiled.css nicht berücksichtigen):
-		css_file_names = Dir.glob(File.join(CSS_PATH, '**', '*.css')).reject do |f| 
-			f.index(COMPILED_CSS_NAME)
+		# Pro Verzeichnis ein Bundle erstellen.
+		dirs.each do |dir|
+		
+			# Alle Stylesheets ermitteln (combined.ccs und compiled.css nicht berücksichtigen):
+			css_file_names = Dir.glob(File.join(CSS_PATH, dir, '**', '*.css')).reject do |f| 
+				f.index(COMPILED_CSS_NAME)
+			end
+			
+			bundle_name = "#{dir}.css"
+			compiled_file = File.open(File.join(CSS_PATH, bundle_name), 'w')
+			puts "==> #{bundle_name}.css"
+			css_file_names.each do |name|
+				puts name
+				compiled_file.write(File.read(name))
+			end
+			compiled_file.close
+		
+			puts "Compress..."
+			compile_css(bundle_name)	
 		end
 		
-		compiled_file = File.open(File.join(CSS_PATH, COMPILED_CSS_NAME), 'w')
-		css_file_names.each do |name|
-			puts name
-			compiled_file.write(File.read(name))
-		end
-		compiled_file.close
 	end
 end
+
+# -------
+# Helpers
+#
+
+def get_top_level_directories(root)
+	Dir.entries(root).reject do |path| 
+		!File.directory?(File.join(root, path)) or File.basename(path)[0] == ?.
+	end
+end
+
+def compile_css(file_name)
+		yuipath = File.join(TOOLS_PATH, 'yuicompressor/yuicompressor-2.4.2.jar')
+		targetpath = File.join(CSS_PATH, file_name)
+		
+		`java -jar #{yuipath} --line-break 0 #{targetpath} -o #{targetpath}`	
+end
+
