@@ -8,7 +8,7 @@ namespace :image do
 	task :sprites do 
 
 		# Unterverzeichnisse in Sprites ermitteln.
-		dirs = get_top_level_directories(SPRITES_PATH)
+		dirs = get_top_level_directories(IMAGES_SPRITES_PATH)
 
 		# Sprites erstellen
 		dirs.each {|dir| create_sprite_for_directory(dir)}
@@ -34,8 +34,8 @@ def create_sprite_for_directory(dirname)
 	classname = "sprite.#{dirname.singularize}"
 	
 	# Alle Dateien mit der gewünschten Erweiterung
-	image_names = Dir.glob(File.join(SPRITES_PATH, dirname, "*.png")) +
-	              Dir.glob(File.join(SPRITES_PATH, dirname, "*.gif"))
+	image_names = Dir.glob(File.join(IMAGES_SPRITES_PATH, dirname, "*.png")) +
+	              Dir.glob(File.join(IMAGES_SPRITES_PATH, dirname, "*.gif"))
 	image_names = image_names.uniq.sort {|a,b| a.downcase <=> b.downcase }
 	
 	# Bilder gefunden?
@@ -44,7 +44,7 @@ def create_sprite_for_directory(dirname)
 	else
 		# Sprite erzeugen
 		puts "Bilder suchen in #{dirname}..."
-		sprite = SpriteCollection.new(classname, File.join(IMAGES_PATH, imagename), File.join(CSS_PATH, cssname))
+		sprite = SpriteCollection.new(classname, File.join(IMAGES_SPRITES_PATH, imagename), File.join(CSS_SPRITES_PATH, cssname))
 		
 		image_names.each do |filename|
 		  puts filename

@@ -1,5 +1,5 @@
 .<%= @sprite_name %> {
-		background: transparent url(../content/images/<%= File.basename(@image_filename) %>) no-repeat;
+		background: transparent url(<%= @relative_image_path %>) no-repeat;
     display: inline-block;
 }
 

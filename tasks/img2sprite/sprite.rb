@@ -27,6 +27,9 @@ class SpriteCollection
 		@image_filename = image_filename
 		@css_filename = css_filename
 		@sprite_name = sprite_name
+		# Relativer Pfad aus dem CSS-Verzeichnis zum Sprite Bild.
+		# Wird in background-image url(...) eingetragen.
+		@relative_image_path = Pathname.new(image_filename).relative_path_from(Pathname.new(css_filename))
 		
 		# Neues Bild erstellen.
 		@image = Image.new(0,0)
