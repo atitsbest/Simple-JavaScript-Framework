@@ -10,7 +10,7 @@ module JavaScript
 		attr_accessor :javascript_path
 		
 		# Die Abhängikeiten
-		attr_reader :tags
+		attr_reader :bundles
 
 		# CTR
 		# @param file {String} Dateiname der dependencies.js relativ zu javascript_path
@@ -31,20 +31,20 @@ module JavaScript
 		end
 		
 		# .js-Datei zu diesem Tag von JSLint überprüfen lassen.
-		# @param tag {String} Tag aus den Abhängigkeiten.
-		def lint_by_tag(tag)
-			files = get_file_names_for_tag(tag) do |t|
+		# @param bundle {String} Tag aus den Abhängigkeiten.
+		def lint_by_bundle(bundle)
+			files = get_file_names_for_bundle(bundle) do |t|
 				t["noLint"] ? false : true 
 			end
 			lint(files)
 		end
 
 		# Ermittelt die Liste der Dateien aus der dependencies.js.
-		# @param tag {String} Dieser Tag soll mit allen Abhängigkeiten geladen werden.
+		# @param bundle {String} Dieser Tag soll mit allen Abhängigkeiten geladen werden.
 		# @param block Bietet die Möglichkeit einzelne Einträge zuvor auszuschließen.
 		# @returns {String[]} Ein Stringarray mit allen Dateien zum angegebenen Tag.
-		def get_file_names_for_tag(tag, &block)
-			get_file_names_for_tag_rec(tag, [], &block)
+		def get_file_names_for_bundle(bundle, &block)
+			get_file_names_for_bundle_rec(bundle, [], &block)
 		end
 		
 		# Liefert alle registrierten Dateinamen.
@@ -52,10 +52,16 @@ module JavaScript
 		# @returns {String[]} Ein Stringarray mit allen Dateien.
 		def get_all_file_names(&block)
 			result = []
-			@tags.each_key do |key|
-				result += get_file_names_for_tag(key, &block)
+			@bundles.each_key do |key|
+				result += get_file_names_for_bundle(key, &block)
 			end
 			return result.uniq
+		end
+
+		# Liefert alle registrierten Bundles.
+		# @returns {String[]} Ein Stringarray mit allen Dateien zum Bundle.
+		def get_all_bundle_names()
+			return bundles.keys.uniq
 		end
 		
 	private
@@ -68,23 +74,23 @@ module JavaScript
 			src = File.read(file)
 			
 			# JSON parsen
-			@tags = JSON.parse(src)
+			@bundles = JSON.parse(src)
 		end	
 
 		# Rekursive Methode um Abhängikeiten aufzulösen.
-		def get_file_names_for_tag_rec(tag, names, &block)
+		def get_file_names_for_bundle_rec(bundle, names, &block)
 			# Gibt es den gewünschten Tag?
-			return [] unless @tags[tag]
+			return [] unless @bundles[bundle]
 		
 			# Anhängigkeiten auflösen.
-			if requires = @tags[tag]["requires"]
-				requires.each {|r| names = get_file_names_for_tag_rec(r, names, &block) + names }
+			if requires = @bundles[bundle]["requires"]
+				requires.each {|r| names = get_file_names_for_bundle_rec(r, names, &block) + names }
 			end
 			
 			# Dateien hinzufügen.
-			if (!block_given? or yield(@tags[tag]))
-				if @tags[tag]["files"]
-					names += @tags[tag]["files"]
+			if (!block_given? or yield(@bundles[bundle]))
+				if @bundles[bundle]["files"]
+					names += @bundles[bundle]["files"]
 				end
 			end
 			
