@@ -8,7 +8,7 @@ namespace :css do
 	COMPILED_CSS_NAME = "#{APPLICATION_NAME}.css"
 
 	desc "Alle Stylesheets jedes Verzeichnisses (inkl. Unterverz.) in einen einzelnen Stylesheet zusammenfassen"
-	task :bundle do 
+	task :bundle => ['image:sprites'] do 
 		# Alle Top-Level-Verzeichnisse ermitteln.
 		dirs = get_top_level_directories(CSS_PATH) 
 		

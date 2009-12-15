@@ -1,6 +1,6 @@
 require(File.join(File.dirname(__FILE__), 'img2sprite', 'sprite.rb'))
 require(File.join(File.dirname(__FILE__), 'helper', 'dir_helper.rb'))
-require 'activesupport'
+require 'active_support'
 
 namespace :image do
 
