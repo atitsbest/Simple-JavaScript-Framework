@@ -1,5 +1,5 @@
-.navigator_sprite {
-		background: transparent url(../images/navigator_sprites.png) no-repeat;
+.sprite.navigator {
+		background: transparent url(../content/images/navigator.png) no-repeat;
     display: inline-block;
 }
 
@@ -29,24 +29,6 @@
 	
 	.navigator_inactive_inactive_png {
 		background-position: -37px -0px;
-		width: 7px;
-		height: 33px;
-	}
-	
-	.navigator_or_active_inactive_png {
-		background-position: -44px -0px;
-		width: 7px;
-		height: 33px;
-	}
-	
-	.navigator_or_inactive_active_png {
-		background-position: -51px -0px;
-		width: 7px;
-		height: 33px;
-	}
-	
-	.navigator_or_inactive_inactive_png {
-		background-position: -58px -0px;
 		width: 7px;
 		height: 33px;
 	}

@@ -1,5 +1,5 @@
-.sprite {
-		background: transparent url(../content/images/sprites.png) no-repeat;
+.sprite.icon {
+		background: transparent url(../content/images/icons.png) no-repeat;
     display: inline-block;
 }
 
