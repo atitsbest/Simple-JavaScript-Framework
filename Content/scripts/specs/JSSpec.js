@@ -482,7 +482,7 @@ JSSpec.Logger.prototype.onRunnerStart = function() {
 		'	<li><span id="progress">0</span>% done</li>',
 		'	<li><span id="total_elapsed">0</span> secs</li>',
 		'</ul>',
-		'<p><a href="http://jania.pe.kr/aw/moin.cgi/JSSpec">JSSpec homepage</a></p>',
+		'<p><a href="http://jania.pe.kr/aw/moin.cgi/JSSpec">JSSpec homepage</a></p>'
 	].join("");
 	container.appendChild(title);
 
