@@ -1,2 +1,2 @@
 desc "Erstellt den ganzen Clientbereich der Anwendung"
-task :compile => ["js:compile", "css:sprites", "css:compile"]
+task :build => ["js:bundle", "css:bundle"]
