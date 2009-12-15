@@ -19,13 +19,14 @@ include Magick
 class SpriteCollection
 
   # CTR
-  def initialize(image_filename, css_filename)
+  def initialize(sprite_name, image_filename, css_filename)
 		# Argument überprüfen
 		raise ArgumentError if (image_filename.nil? or image_filename.empty?)
 		raise ArgumentError if (css_filename.nil? or css_filename.empty?)
 		# Argumente zuweisen.
 		@image_filename = image_filename
 		@css_filename = css_filename
+		@sprite_name = sprite_name
 		
 		# Neues Bild erstellen.
 		@image = Image.new(0,0)

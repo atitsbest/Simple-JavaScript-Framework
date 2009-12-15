@@ -3,7 +3,7 @@ require 'spec/expectations'
 require 'sprite'
 
 Given /^I have a Sprite with image '([\d\w]*\.(?:png|gif))' and style '([\d\w]*\.css)'$/ do |image,style|
-	@sprite = SpriteCollection.new image, style
+	@sprite = SpriteCollection.new "sprite", image, style
 end
 
 And /^I add the image '([\d\w]*\.(?:png|gif))'$/ do |image|
